@@ -37,3 +37,5 @@ PresetManager:
     - m_Preset: {fileID: 2655988077585873504, guid: 6142a6f2109cf0d44a3880a89a502af7,
         type: 2}
       m_Filter: 
+    - m_Preset: {fileID: 0}
+      m_Filter: Anim@
