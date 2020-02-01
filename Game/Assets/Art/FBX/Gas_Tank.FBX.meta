@@ -1,24 +1,9 @@
 fileFormatVersion: 2
-guid: ff3da60589de8a84290a5683be266bf4
+guid: 69d0b2635825972429f02113244d510d
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Emissive_Green
-    second: {fileID: 2100000, guid: 4bcdbc741520ae24d80707de98724fb6, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Emissive_Red
-    second: {fileID: 2100000, guid: 1d4dfb3abf2d03d498e9124a236eb134, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: UTIL_Grey
-    second: {fileID: 2100000, guid: 9523b95aa794a9644b5ca4e527f9ccbf, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 1
