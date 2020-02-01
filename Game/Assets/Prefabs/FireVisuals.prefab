@@ -4794,6 +4794,7 @@ MonoBehaviour:
   - 0.3
   - 0.4
   m_particles: {fileID: 6690150300149670179}
+  m_light: {fileID: 6690150301417705229}
   ParticleLevel: 0
 --- !u!1 &6690150301417705231
 GameObject:
