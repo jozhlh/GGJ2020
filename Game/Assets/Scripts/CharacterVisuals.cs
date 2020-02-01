@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class CharacterVisuals : MonoBehaviour
 {
-    [SerializeField] private float m_rotateSpeed = 20.0f;
+    [SerializeField] private float m_rotateSpeed = 150.0f;
+
+    [SerializeField] private float m_lerpSpeed = 0.4f;
 
     [SerializeField] private Transform m_toolAttachPoint = null;
 
@@ -16,20 +18,25 @@ public class CharacterVisuals : MonoBehaviour
 
     private Vector2 m_lookAtTarget = Vector2.right;
 
+    private float m_yTarget = 0.0f;
+
 
     // Update is called once per frame
     void Update()
     {
         if (m_input.Move.x > 0.5f)
         {
-            transform.forward = Vector3.right;
+            var rot = transform.eulerAngles;
+            var y = Mathf.LerpAngle( rot.y, 95.0f, m_lerpSpeed );
+            transform.eulerAngles = new Vector3( 0.0f, y, 0.0f);
         }
 
         if (m_input.Move.x < -0.5f)
         {
-            transform.forward = -Vector3.right;
+            var rot = transform.eulerAngles;
+            var y = Mathf.LerpAngle( rot.y, 265.0f, m_lerpSpeed );
+            transform.eulerAngles = new Vector3( 0.0f, y, 0.0f);
         }
-
         
 
         if (m_input.Aim.x > 0.5f)
