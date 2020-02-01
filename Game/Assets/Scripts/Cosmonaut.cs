@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,14 +26,22 @@ public class Cosmonaut : MonoBehaviour
 
     [Header("References")]
     [SerializeField]
-    private Rigidbody2D rigidbody;
-
-    [SerializeField]
     private PlayerController playerController;
     public PlayerController PlayerController => playerController;
 
+    public Vector2 HandPosition => (Vector2)transform.position + Vector2.right * 0.1f;
 
-    private List<GravitySource> gravitySources;
+    private Tool heldTool;
+
+    private readonly List<Tool> grabbableTools = new List<Tool>();
+
+    [SerializeField]
+    private FloatingBody floatingObject;
+    public FloatingBody FloatingObject => floatingObject;
+
+    [SerializeField]
+    private GravitySource grabGravity;
+    private Coroutine currentGrab;
 
     private int m_playerIndex = 0;
 
@@ -40,16 +49,115 @@ public class Cosmonaut : MonoBehaviour
 
     private void Awake()
     {
-        if (!this.rigidbody)
+        if (!this.floatingObject)
         {
-            this.rigidbody = GetComponent<Rigidbody2D>();
+            this.floatingObject = GetComponent<FloatingBody>();
         }
 
-        this.gravitySources = new List<GravitySource>();
+        this.grabGravity.enabled = false;
+    }
+
+    private void OnDisable()
+    {
+        currentGrab = null;
+        grabGravity.enabled = false;
+    }
+
+    private void Update()
+    {
+        bool useTool;
+
+        if (useKeyboard)
+        {
+            useTool = Input.GetButton("Fire2");
+        }
+        else
+        {
+            useTool = false;
+        }
+
+        if (IsInputGrabbing() && currentGrab == null)
+        {
+            currentGrab = StartCoroutine(Grab());
+        }
+
+        if (heldTool)
+        {
+            if (heldTool.IsUsing && !useTool)
+            {
+                heldTool.StopUsing(this);
+            }
+            else if (!heldTool.IsUsing && useTool)
+            {
+                heldTool.BeginUsing(this);
+            }
+        }
+    }
+
+    private bool IsInputGrabbing()
+    {
+        return useKeyboard
+            ? Input.GetButton("Fire1")
+            : playerController.Interact;
+    }
+
+    // grabbing state machine. when grabbing, attract nearby objects until
+    // one is in grab range, then as long as the player is still holding the button,
+    // grab it to make it the held tool.
+    // then, the player has to release and press again to drop it
+    private IEnumerator Grab()
+    {
+        if (!heldTool)
+        {
+            grabGravity.enabled = true;
+
+            while (grabbableTools.Count == 0 && IsInputGrabbing())
+            {
+                yield return null;
+            }
+
+            grabGravity.enabled = false;
+
+            if (grabbableTools.Count > 0)
+            {
+                heldTool = grabbableTools[0];
+                heldTool.Grab(this);
+
+                // wait after pickup for release and press
+                while (IsInputGrabbing())
+                {
+                    yield return null;
+                }
+            }
+        }
+
+        // wait for grab button to be pressed again to release the held tool
+        if (heldTool)
+        {
+            while (!IsInputGrabbing())
+            {
+                yield return null;
+            }
+
+            heldTool.UnGrab(this);
+            heldTool = null;
+
+            // don't allow another grab to start until the button is released again
+            while (IsInputGrabbing())
+            {
+                yield return null;
+            }
+        }
+
+        currentGrab = null;
     }
 
     private void FixedUpdate()
     {
+        float x;
+        float y;
+        bool jump;
+
         if (useKeyboard)
         {
             x = Input.GetAxis("Horizontal");
@@ -86,38 +194,29 @@ public class Cosmonaut : MonoBehaviour
             else
             {
                 var boost = moveDir * this.boostCurve.Evaluate(boostProgress) * Time.fixedDeltaTime;
-                this.rigidbody.AddForce(boost);
+                this.floatingObject.Rigidbody.AddForce(boost);
             }
         }
         else
         {
             var thrust = moveDir * this.thrustSpeed * Time.fixedDeltaTime;
-            this.rigidbody.AddForce(thrust);
-        }
-
-        foreach (var gravitySource in this.gravitySources)
-        {
-            var gravityDir = gravitySource.transform.position - this.transform.position;
-            var gravityStrength = gravitySource.GetStrengthAt(this.transform.position);
-            var gravity = new Vector2(gravityDir.x, gravityDir.y) * gravityStrength * Time.fixedDeltaTime;
-
-            this.rigidbody.AddForce(gravity);
+            this.floatingObject.Rigidbody.AddForce(thrust);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.TryGetComponent<GravitySource>(out var gravitySource))
+        if (collider.GetComponentInParent<Tool>() is Tool tool)
         {
-            this.gravitySources.Add(gravitySource);
+            this.grabbableTools.Add(tool);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        if (collider.TryGetComponent<GravitySource>(out var gravitySource))
+        if (collider.GetComponentInParent<Tool>() is Tool tool)
         {
-            this.gravitySources.Remove(gravitySource);
+            this.grabbableTools.Remove(tool);
         }
     }
 }

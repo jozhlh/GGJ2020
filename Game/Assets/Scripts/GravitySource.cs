@@ -12,6 +12,16 @@ public class GravitySource : MonoBehaviour
         this.trigger = GetComponent<Collider2D>();
     }
 
+    private void OnEnable()
+    {
+        trigger.enabled = true;
+    }
+
+    private void OnDisable()
+    {
+        trigger.enabled = false;
+    }
+
     public float GetStrengthAt(Vector2 pos)
     {
         switch (this.trigger)
