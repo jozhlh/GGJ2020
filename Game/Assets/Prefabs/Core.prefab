@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 3874523309795012599}
   - component: {fileID: 4253101314818031073}
   - component: {fileID: 4229598101053730662}
+  - component: {fileID: 1365215187564762900}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -61,7 +62,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4398214694977911708}
-  m_LocalRotation: {x: 0.12655385, y: -0, z: -0, w: 0.99195975}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.06, y: 2.19, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -81,7 +82,7 @@ Camera:
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
-  m_FOVAxisMode: 0
+  m_FOVAxisMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
   m_FocalLength: 28.970562
@@ -240,6 +241,24 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 7e444cd669cf40f4cb0b392c5f28c5ed, type: 2}
+--- !u!114 &1365215187564762900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4398214694977911708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618ed145baa90834ba653b33abc7593e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fovLerp: 0.3
+  m_yOffset: 0.5
+  m_fovScale: 0.4
+  m_extentsBuffer: {x: 1, y: 0.2}
+  m_minExtents: {x: 10, y: 5}
+  m_camera: {fileID: 3887593977637047385}
 --- !u!1 &7857658136554733832
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,6 +402,11 @@ PrefabInstance:
       propertyPath: m_lobbyUi
       value: 
       objectReference: {fileID: 3020339518861327460}
+    - target: {fileID: 2945771441477417555, guid: 0b3b982ab1fd4ab4b92d65d43610ab50,
+        type: 3}
+      propertyPath: m_camera
+      value: 
+      objectReference: {fileID: 1365215187564762900}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b3b982ab1fd4ab4b92d65d43610ab50, type: 3}
 --- !u!4 &7857658138308077622 stripped
