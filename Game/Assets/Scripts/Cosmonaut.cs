@@ -31,14 +31,12 @@ public class Cosmonaut : MonoBehaviour
 
     private Tool heldTool;
 
-    private readonly List<Tool> grabbableTools = new List<Tool>();
-
     [SerializeField]
     private FloatingBody floatingObject;
     public FloatingBody FloatingObject => floatingObject;
 
     [SerializeField]
-    private GravitySource grabGravity;
+    private ToolGrabber toolGrabber;
 
     [SerializeField]
     private CharacterVisuals m_visuals;
@@ -46,8 +44,6 @@ public class Cosmonaut : MonoBehaviour
     public Transform HandPosition => m_visuals.Hand;
 
     private Coroutine currentGrab;
-
-    private float grabStrength;
 
     private int m_playerIndex = 0;
 
@@ -59,15 +55,11 @@ public class Cosmonaut : MonoBehaviour
         {
             this.floatingObject = GetComponent<FloatingBody>();
         }
-
-        grabStrength = grabGravity.Strength;
-        grabGravity.Strength = 0;
     }
 
     private void OnDisable()
     {
         currentGrab = null;
-        grabGravity.Strength = 0;
     }
 
     private void Update()
@@ -116,18 +108,18 @@ public class Cosmonaut : MonoBehaviour
     {
         if (!heldTool)
         {
-            grabGravity.Strength = grabStrength;
+            toolGrabber.BeginGrabbing();
 
-            while (grabbableTools.Count == 0 && IsInputGrabbing())
+            while (toolGrabber.GrabbableTools.Count == 0 && IsInputGrabbing())
             {
                 yield return null;
             }
 
-            grabGravity.Strength = 0;
+            toolGrabber.EndGrabbing();
 
-            if (grabbableTools.Count > 0)
+            if (toolGrabber.GrabbableTools.Count > 0)
             {
-                heldTool = grabbableTools[0];
+                heldTool = toolGrabber.GrabbableTools[0];
                 heldTool.Grab(this);
 
                 // wait after pickup for release and press
@@ -218,19 +210,5 @@ public class Cosmonaut : MonoBehaviour
         m_visuals.SetLookDirection( aim );
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.GetComponentInParent<Tool>() is Tool tool)
-        {
-            this.grabbableTools.Add(tool);
-        }
-    }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.collider.GetComponentInParent<Tool>() is Tool tool)
-        {
-            this.grabbableTools.Remove(tool);
-        }
-    }
 }

@@ -8,12 +8,13 @@ public abstract class Tool : MonoBehaviour
 
     [SerializeField]
     private FloatingBody floatingBody;
+    public FloatingBody FloatingBody => floatingBody;
 
     public void Grab(Cosmonaut holder)
     {
-        transform.SetParent( holder.HandPosition, false);
-        transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.identity;
+        floatingBody.transform.SetParent( holder.HandPosition, false);
+        floatingBody.transform.localPosition = Vector3.zero;
+        floatingBody.transform.localRotation = Quaternion.identity;
 
         floatingBody.enabled = false;
     }
@@ -25,7 +26,7 @@ public abstract class Tool : MonoBehaviour
             StopUsing(holder);
         }
 
-        transform.SetParent(holder.transform.parent, true);
+        floatingBody.transform.SetParent(holder.transform.parent, true);
 
         floatingBody.enabled = true;
     }
