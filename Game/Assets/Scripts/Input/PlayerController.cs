@@ -8,9 +8,13 @@ public class PlayerController : MonoBehaviour
     
     private Vector2 m_move = Vector2.zero;
 
+    private Vector2 m_aim = Vector2.zero;
+
     private bool m_jump = false;
 
     private bool m_interact = false;
+
+    private bool m_grab = false;
 
     private bool m_start = false;
 
@@ -18,9 +22,14 @@ public class PlayerController : MonoBehaviour
 
     private bool m_cachedInteract = false;
 
+    private bool m_cachedGrab = false;
+
     private bool m_cachedStart = false;
 
     public Vector2 Move => m_move;
+    public Vector2 Aim => m_aim;
+
+    public bool Grab => m_grab;
 
     public bool Jump => m_jump;
 
@@ -35,16 +44,24 @@ public class PlayerController : MonoBehaviour
         m_jump = m_cachedJump;
         m_interact = m_cachedInteract;
         m_start = m_cachedStart;
+        m_grab = m_cachedGrab;
         
         m_cachedJump = false;
         m_cachedInteract = false;
         m_cachedStart = false;
+        m_cachedGrab = false;
     }
 
     // Input system callback event
     private void OnMove( InputValue value )
     {
         m_move = value.Get<Vector2>();
+    }
+
+    // Input system callback event
+    private void OnAim( InputValue value )
+    {
+        m_aim = value.Get<Vector2>();
     }
 
     // Input system callback event
@@ -59,6 +76,12 @@ public class PlayerController : MonoBehaviour
     {
         m_cachedInteract = true;
         Debug.Log("On Interact");
+    }
+
+    private void OnGrab()
+    {
+        m_cachedGrab = true;
+        Debug.Log("On Grab");
     }
 
     // Input system callback event

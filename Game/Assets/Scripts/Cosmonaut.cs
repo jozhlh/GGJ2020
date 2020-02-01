@@ -29,7 +29,7 @@ public class Cosmonaut : MonoBehaviour
     private PlayerController playerController;
     public PlayerController PlayerController => playerController;
 
-    public Vector2 HandPosition => (Vector2)transform.position + Vector2.right * 0.1f;
+    public Vector2 HandPosition => (Vector2)m_visualsTransform.position + Vector2.right * 0.1f;
 
     private Tool heldTool;
 
@@ -41,6 +41,10 @@ public class Cosmonaut : MonoBehaviour
 
     [SerializeField]
     private GravitySource grabGravity;
+
+    [SerializeField]
+    private Transform m_visualsTransform;
+
     private Coroutine currentGrab;
 
     private int m_playerIndex = 0;
@@ -73,7 +77,7 @@ public class Cosmonaut : MonoBehaviour
         }
         else
         {
-            useTool = false;
+            useTool = playerController.Interact;
         }
 
         if (IsInputGrabbing() && currentGrab == null)
@@ -98,7 +102,7 @@ public class Cosmonaut : MonoBehaviour
     {
         return useKeyboard
             ? Input.GetButton("Fire1")
-            : playerController.Interact;
+            : playerController.Grab;
     }
 
     // grabbing state machine. when grabbing, attract nearby objects until
@@ -157,6 +161,7 @@ public class Cosmonaut : MonoBehaviour
         float x;
         float y;
         bool jump;
+        Vector3 aim = Vector3.zero;
 
         if (useKeyboard)
         {
@@ -170,6 +175,10 @@ public class Cosmonaut : MonoBehaviour
             x = playerController.Move.x;
             y = playerController.Move.y;
             jump = playerController.Jump;
+            aim.x = playerController.Aim.x;
+            aim.y = playerController.Aim.y;
+            aim.z = 0.0f;
+            aim = aim.normalized;
         }
 
         var moveDir = new Vector2(x, y).normalized;
@@ -202,6 +211,8 @@ public class Cosmonaut : MonoBehaviour
             var thrust = moveDir * this.thrustSpeed * Time.fixedDeltaTime;
             this.floatingObject.Rigidbody.AddForce(thrust);
         }
+
+        m_visualsTransform.LookAt(m_visualsTransform.position + aim);
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NotificationBehavior: 0
-  m_MaxPlayerCount: -1
+  m_MaxPlayerCount: 4
   m_AllowJoining: 1
   m_JoinBehavior: 0
   m_PlayerJoinedEvent:
@@ -92,7 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55ab0a7f5b3e68049a37a52c5bf8e08c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_lobby: {fileID: 0}
+  m_holdToStartDuration: 2
+  m_lobbyUi: {fileID: 0}
   m_spawnPositions:
   - {fileID: 2938614827574661176}
   - {fileID: 1120743168180286845}

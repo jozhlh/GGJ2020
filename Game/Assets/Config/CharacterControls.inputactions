@@ -60,6 +60,14 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Grab",
+                    "type": "Button",
+                    "id": "0441148b-ef71-4de5-a4d0-2001b83cba2f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -77,7 +85,7 @@
                 {
                     "name": "",
                     "id": "937bfd4e-1c06-438b-86fd-9a5f06c72744",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<DualShockGamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -137,6 +145,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Vertical",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "42aab389-1d7b-4be3-b13e-aeea713a6da9",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
