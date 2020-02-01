@@ -13,7 +13,7 @@ public class GravitySource : MonoBehaviour
 
     private Collider2D trigger;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         this.trigger = GetComponent<Collider2D>();
     }

@@ -11,6 +11,9 @@ public class MultiplayerManager : MonoBehaviour
 
     [Header("References")]
     [SerializeField]
+    private MultiplayerCamera m_camera = null;
+
+    [SerializeField]
     private LobbyUi m_lobbyUi = null;
 
     [SerializeField]
@@ -36,6 +39,10 @@ public class MultiplayerManager : MonoBehaviour
         {
             PrepareToStart();
         }
+        else
+        {
+            m_camera.UpdateCamera();
+        }
     }
 
     private void PrepareToStart()
@@ -54,6 +61,7 @@ public class MultiplayerManager : MonoBehaviour
             GameEvents.OnRoundStart();
             Debug.Log("Round Start");
             m_inLobby = false;
+            m_camera.GivePlayers(m_activePlayers);
         }
 
         // if ( countup )
