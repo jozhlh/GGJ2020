@@ -1,12 +1,7 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Game/Assets/Prefabs/UI/PlayerArrow.prefab.meta
-guid: aa368c980029ea44c8c2255357940865
+guid: a457659d34801b74cbd008528648ae48
 PrefabImporter:
-=======
-guid: 06b3350fcaf2c7d478f67f98646a6f06
-DefaultImporter:
->>>>>>> 2e9cc3c00285e5e8f5097adc9b53b67765510b16:Game/Assets/Scenes/Main.unity.meta
   externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  userData:
+  assetBundleName:
+  assetBundleVariant:
