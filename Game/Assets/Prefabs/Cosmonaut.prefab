@@ -81,6 +81,7 @@ MonoBehaviour:
   floatingObject: {fileID: 3703050789673697855}
   toolGrabber: {fileID: 3816126115941785410}
   m_visuals: {fileID: 8279462778874417292}
+  m_particles: {fileID: 0}
 --- !u!114 &7988642128578642713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_rotateSpeed: 20
   m_toolAttachPoint: {fileID: 8039561530149462473}
-  m_rigidBody: {fileID: 2117850097919248570}
+  m_parent: {fileID: 359284819325376435}
   m_input: {fileID: 6019956271313247964}
 --- !u!1 &4413505144566231026
 GameObject:
