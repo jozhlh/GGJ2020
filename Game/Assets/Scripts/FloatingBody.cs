@@ -47,8 +47,9 @@ public class FloatingBody : MonoBehaviour
     {
         foreach (var gravitySource in this.gravitySources)
         {
-            var gravityDir = gravitySource.transform.position - this.transform.position;
-            var gravityStrength = gravitySource.GetStrengthAt(this.transform.position);
+            var (gravityStrength, gravityTarget) = gravitySource.GetStrengthAndTargetAt(this.transform.position);
+            var gravityDir = gravityTarget - this.transform.position;
+            
             var gravity = new Vector2(gravityDir.x, gravityDir.y) * gravityStrength * Time.fixedDeltaTime;
 
             this.rigidbody.AddForce(gravity);
