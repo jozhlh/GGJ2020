@@ -264,8 +264,6 @@ public class Cosmonaut : MonoBehaviour
 
         }
 
-        m_visuals.SetLookDirection( aim );
-
         // pull tools towards us while in grab+pull mode
         foreach (var tool in pullingTools)
         {

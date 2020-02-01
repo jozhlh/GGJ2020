@@ -10,9 +10,13 @@ public class CharacterVisuals : MonoBehaviour
 
     [SerializeField] private Transform m_toolAttachPoint = null;
 
-    [SerializeField] private Transform m_parent;
+    [SerializeField] private Transform m_parent = null;
 
-    [SerializeField] private PlayerController m_input;
+    [SerializeField] private Rigidbody2D m_rb = null;
+
+    [SerializeField] private PlayerController m_input = null;
+
+    [SerializeField] private Animator m_animator = null;
 
     public Transform Hand => m_toolAttachPoint;
 
@@ -50,10 +54,23 @@ public class CharacterVisuals : MonoBehaviour
         // var sideLook = Vector2.Lerp(transform.right, m_lookAtTarget, m_smoothValue);
         // transform.right = sideLook.normalized;
         // Debug.DrawLine(transform.position, transform.position + transform.right );
+
+        if (m_animator)
+        {
+            UpdateAnimator(  );
+        }
     }
 
-    public void SetLookDirection( Vector3 lookDirection )
+    public void UpdateAnimator( )
     {
-        // m_lookAtTarget = lookDirection;
+        var velocity = m_rb.velocity;
+        m_animator.SetFloat("HorizontalVelocity", velocity.x);
+        m_animator.SetFloat("VerticalVelocity", velocity.y);
+
+        velocity.y = 0.0f;
+        var move = m_input.Move;
+        move.y = 0.0f;
+
+        m_animator.SetFloat("xDot", Vector3.Dot(velocity, move));
     }
 }

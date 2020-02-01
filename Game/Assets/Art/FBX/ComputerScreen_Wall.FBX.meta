@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: ComputerSheet_A
+    second: {fileID: 2100000, guid: 5e2dd52fc6050d941b807b20765aaf74, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Emissive_Green
     second: {fileID: 2100000, guid: 4bcdbc741520ae24d80707de98724fb6, type: 2}
   - first:
@@ -14,6 +19,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Emissive_Red
     second: {fileID: 2100000, guid: 1d4dfb3abf2d03d498e9124a236eb134, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: UTIL_Black
+    second: {fileID: 2100000, guid: 18d2530f49a7a1e4b8ca311be9866c37, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
