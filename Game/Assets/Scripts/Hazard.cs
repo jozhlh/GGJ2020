@@ -1,9 +1,19 @@
 using System.Collections;
 using UnityEngine;
 
-public class Fire : MonoBehaviour
+public enum HazardKind
+{
+    Fire,
+    GasLeak,
+    Alien,
+}
+
+public class Hazard : MonoBehaviour
 {
     private const float damageTickTime = 1.0f;
+
+    private const float minScale = 1.0f;
+    private const float maxScale = 3.0f;
 
     private const float medDamageThreshold = 0.5f;
     private const float bigDamageThreshold = 0.9f;
@@ -21,10 +31,14 @@ public class Fire : MonoBehaviour
     private float growSpeed = 5.0f;
 
     [SerializeField]
-    private new Renderer renderer;
+    private GameObject mainVisual;
 
     [SerializeField]
     private new Collider2D collider;
+
+    [SerializeField]
+    private HazardKind kind;
+    public HazardKind Kind => kind;
 
     private void Awake()
     {
@@ -32,8 +46,8 @@ public class Fire : MonoBehaviour
 
         lastDamageTick = Time.time;
 
-        var sizeAmount = Random.Range(0f, 0.75f);
-        health = Mathf.LerpUnclamped(minHealth, maxHealth, sizeAmount);
+        var healthAmount = Random.Range(0f, 0.75f);
+        health = Mathf.LerpUnclamped(minHealth, maxHealth, healthAmount);
     }
 
     public void Extinguish(float amount)
@@ -53,13 +67,19 @@ public class Fire : MonoBehaviour
         var dieTime = 0.5f;
         var dieStart = Time.time;
 
+        var allRenderers = GetComponentsInChildren<Renderer>();
+
         float dieProgress;
         do
         {
             dieProgress = (Time.time - dieStart) / dieTime;
-            var color = renderer.material.color;
-            color.a = 1 - dieProgress;
-            renderer.material.color = color;
+
+            foreach (var renderer in allRenderers)
+            {
+                var color = renderer.material.color;
+                color.a = 1 - dieProgress;
+                renderer.material.color = color;
+            }
 
             var scale = Vector3.LerpUnclamped(Vector3.zero, Vector3.one, 1 - dieProgress);
             transform.localScale = scale;
@@ -84,11 +104,12 @@ public class Fire : MonoBehaviour
             health = Mathf.Min(maxHealth, health + growSpeed * Time.deltaTime);
 
             var healthProgress = Mathf.InverseLerp(minHealth, maxHealth, Mathf.Max(minHealth, health));
-            var scale = Mathf.Lerp(1.0f, 2.0f, healthProgress);
+            var scale = Mathf.Lerp(minScale, maxScale, healthProgress);
 
-            transform.localScale = new Vector3(scale, scale, scale);
+            mainVisual.transform.localScale = new Vector3(scale, scale, scale);
 
-            if (Time.time - lastDamageTick > damageTickTime)
+            if (Time.time - lastDamageTick > damageTickTime
+                && kind != HazardKind.Alien)
             {
                 lastDamageTick = Time.time;
 

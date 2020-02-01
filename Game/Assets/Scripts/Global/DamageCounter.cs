@@ -3,7 +3,7 @@ using UnityEngine;
 public class DamageCounter : MonoBehaviour
 {
     public int Health { get; private set; } = MaxHealth;
-    public const int MaxHealth = 100;
+    public const int MaxHealth = 1000;
 
     private MultiplayerManager multiplayer;
 

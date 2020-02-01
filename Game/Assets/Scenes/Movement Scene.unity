@@ -162,7 +162,37 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &385597819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 385597820}
+  m_Layer: 0
+  m_Name: Gas Leak
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &385597820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385597819}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.7631235, y: 0.07047765, z: -0.12895635}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &570182772
 PrefabInstance:
@@ -509,6 +539,75 @@ MonoBehaviour:
       data1: 0
       data2: 0
   defaultFrameSettings: 0
+--- !u!1001 &1513381781
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1411804646386664497, guid: e02e71c891d40bc49aa7ade4c17267b4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411804646386664497, guid: e02e71c891d40bc49aa7ade4c17267b4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411804646386664497, guid: e02e71c891d40bc49aa7ade4c17267b4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.039823
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411804646386664497, guid: e02e71c891d40bc49aa7ade4c17267b4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411804646386664497, guid: e02e71c891d40bc49aa7ade4c17267b4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411804646386664497, guid: e02e71c891d40bc49aa7ade4c17267b4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411804646386664497, guid: e02e71c891d40bc49aa7ade4c17267b4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411804646386664497, guid: e02e71c891d40bc49aa7ade4c17267b4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411804646386664497, guid: e02e71c891d40bc49aa7ade4c17267b4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411804646386664497, guid: e02e71c891d40bc49aa7ade4c17267b4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411804646386664497, guid: e02e71c891d40bc49aa7ade4c17267b4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411804646386664508, guid: e02e71c891d40bc49aa7ade4c17267b4,
+        type: 3}
+      propertyPath: m_Name
+      value: Gas Leak (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e02e71c891d40bc49aa7ade4c17267b4, type: 3}
 --- !u!1 &1522416639
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,7 +899,7 @@ RectTransform:
   m_Children:
   - {fileID: 570182773}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -871,7 +970,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1750985574
 GameObject:
@@ -1165,7 +1264,7 @@ PrefabInstance:
     - target: {fileID: 1411804646386664497, guid: 24cba5b2836120b4d89c94faf8bf34e9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1411804646386664497, guid: 24cba5b2836120b4d89c94faf8bf34e9,
         type: 3}
@@ -1201,12 +1300,12 @@ PrefabInstance:
     - target: {fileID: 2656334787024705381, guid: 6dde147ef0eefed4b9e4ec7413bb8659,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.173
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 2656334787024705381, guid: 6dde147ef0eefed4b9e4ec7413bb8659,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.172
+      value: -1.2
       objectReference: {fileID: 0}
     - target: {fileID: 2656334787024705381, guid: 6dde147ef0eefed4b9e4ec7413bb8659,
         type: 3}
