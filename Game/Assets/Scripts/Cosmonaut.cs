@@ -44,6 +44,7 @@ public class Cosmonaut : MonoBehaviour
     public Transform HandPosition => m_visuals.Hand;
 
     private Coroutine currentGrab;
+    private Coroutine currentDeath;
 
     private int m_playerIndex = 0;
 
@@ -210,5 +211,47 @@ public class Cosmonaut : MonoBehaviour
         m_visuals.SetLookDirection( aim );
     }
 
+    public void Die()
+    {
+        if (currentDeath == null)
+        {
+            Debug.LogFormat("{0} died", name);
+            currentDeath = StartCoroutine(DeathAnimation());
+        }
+    }
 
+    private IEnumerator DeathAnimation()
+    {
+        var renderers = GetComponentsInChildren<Renderer>();
+
+        floatingObject.enabled = false;
+
+        const float deathDuration = 1.0f;
+        var startTime = Time.time;
+
+        float deathProgress;
+        do
+        {
+            deathProgress = (Time.time - startTime) / deathDuration;
+            foreach (var renderer in renderers)
+            {
+                var color = Color.LerpUnclamped(Color.white, Color.clear, deathProgress);
+                renderer.material.color = color;
+            }
+            yield return null;
+        }
+        while (deathProgress < 1);
+
+        transform.rotation = Quaternion.identity;
+        transform.position = Vector3.zero;
+
+        floatingObject.enabled = true;
+        foreach (var renderer in renderers)
+        {
+            renderer.material.color = Color.white;
+        }
+        currentDeath = null;
+
+        GameEvents.OnPlayerDied(this);
+    }
 }
