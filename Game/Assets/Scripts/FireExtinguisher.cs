@@ -3,7 +3,7 @@ using UnityEngine;
 public class FireExtinguisher : Tool
 {
     [SerializeField]
-    private Vector2 pushForce = new Vector2(-500f, 0f);
+    private float pushForce = 500f;
 
     [SerializeField]
     private FireExtinguisherSpray spray;
@@ -42,7 +42,6 @@ public class FireExtinguisher : Tool
             return;
         }
 
-        var worldPushForce = transform.localToWorldMatrix.MultiplyVector(pushForce);
-        currentUser.FloatingObject.Rigidbody.AddForce(worldPushForce * Time.fixedDeltaTime);
+        currentUser.FloatingObject.Rigidbody.AddForce(transform.right * pushForce * Time.fixedDeltaTime);
     }
 }

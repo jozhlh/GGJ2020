@@ -22,26 +22,10 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Jump",
+                    "name": "Vertical",
                     "type": "Button",
-                    "id": "995bbd0c-330f-4a2c-8dc9-0069fb84edf9",
+                    "id": "b89d229d-ab4b-4618-9974-7f61718a43e8",
                     "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Interact",
-                    "type": "Value",
-                    "id": "9556c37b-c580-495b-b039-e8335f5bd7bb",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Start",
-                    "type": "Button",
-                    "id": "73e73c58-b887-45d7-9663-fb544e12071f",
-                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 },
@@ -54,20 +38,60 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Vertical",
+                    "name": "Jump",
                     "type": "Button",
-                    "id": "b89d229d-ab4b-4618-9974-7f61718a43e8",
+                    "id": "995bbd0c-330f-4a2c-8dc9-0069fb84edf9",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
                 },
                 {
-                    "name": "Grab",
-                    "type": "Value",
-                    "id": "0441148b-ef71-4de5-a4d0-2001b83cba2f",
-                    "expectedControlType": "Analog",
+                    "name": "InteractDown",
+                    "type": "Button",
+                    "id": "9556c37b-c580-495b-b039-e8335f5bd7bb",
+                    "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
+                },
+                {
+                    "name": "InteractUp",
+                    "type": "Button",
+                    "id": "ec2241f8-e5d8-4c8e-ad76-e4c325f24d6f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
+                },
+                {
+                    "name": "StartDown",
+                    "type": "Button",
+                    "id": "73e73c58-b887-45d7-9663-fb544e12071f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "StartUp",
+                    "type": "Button",
+                    "id": "d0130c14-cab8-456c-80a0-05e84a2dd0c3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
+                },
+                {
+                    "name": "GrabDown",
+                    "type": "Button",
+                    "id": "0441148b-ef71-4de5-a4d0-2001b83cba2f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "GrabUp",
+                    "type": "Button",
+                    "id": "41c5687d-0b82-43e2-bfdd-aed958f8b759",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
                 }
             ],
             "bindings": [
@@ -89,7 +113,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Interact",
+                    "action": "InteractDown",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -122,7 +146,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Start",
+                    "action": "StartDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "42aab389-1d7b-4be3-b13e-aeea713a6da9",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GrabDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d5436223-f842-43c9-ad12-82b94490a4d4",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StartUp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -150,12 +196,23 @@
                 },
                 {
                     "name": "",
-                    "id": "42aab389-1d7b-4be3-b13e-aeea713a6da9",
+                    "id": "6dfebb87-075d-4b54-ab67-2e1656934d5d",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InteractUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "14c29598-680b-4f4c-9ef2-8992262b17ae",
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Grab",
+                    "action": "GrabUp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

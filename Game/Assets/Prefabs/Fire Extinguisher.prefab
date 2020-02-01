@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floatingBody: {fileID: 5485921565035602230}
-  pushForce: {x: -500, y: 0}
+  pushForce: 500
   spray: {fileID: 6561975938203482070}
 --- !u!1 &3253673733373321934
 GameObject:

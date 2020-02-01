@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     private bool m_cachedStart = false;
 
+    private bool m_updated = false;
+
     public Vector2 Move => m_move;
     public Vector2 Aim => m_aim;
 
@@ -42,9 +44,9 @@ public class PlayerController : MonoBehaviour
     public void UpdateInput()
     {
         m_jump = m_cachedJump;
-        m_interact = m_cachedInteract;
-        m_start = m_cachedStart;
-        m_grab = m_cachedGrab;
+        m_interact |= m_cachedInteract;
+        m_start |= m_cachedStart;
+        m_grab |= m_cachedGrab;
         
         m_cachedJump = false;
         m_cachedInteract = false;
@@ -68,26 +70,49 @@ public class PlayerController : MonoBehaviour
     private void OnJump()
     {
         m_cachedJump = true;
-        Debug.Log("On Jump");
+        Debug.Log("On Jump Down");
     }
 
     // Input system callback event
-    private void OnInteract( InputValue value )
+    private void OnInteractDown()
     {
-        m_cachedInteract = value.Get<float>() > 0;
-        Debug.Log("On Interact");
+        m_interact = true;
+        m_cachedInteract = true;
+        Debug.Log("On Interact Down");
     }
 
-    private void OnGrab( InputValue value )
+    private void OnGrabDown()
     {
-        m_cachedGrab = value.Get<float>() > 0;
-        Debug.Log($"On Grab {m_cachedGrab}");
+        m_cachedGrab = true;
+        m_grab = true;
+        Debug.Log($"On Grab Down");
     }
 
     // Input system callback event
-    private void OnStart()
+    private void OnStartDown()
     {
         m_cachedStart = true;
-        Debug.Log("On Start");
+        m_start = true;
+        Debug.Log("On Start Down");
+    }
+
+    // Input system callback event
+    private void OnInteractUp()
+    {
+        m_interact = false;
+        Debug.Log("On Interact Up");
+    }
+
+    private void OnGrabUp()
+    {
+        m_grab = false;
+        Debug.Log($"On Grab Up");
+    }
+
+    // Input system callback event
+    private void OnStartUp()
+    {
+        m_start = false;
+        Debug.Log("On Start Up");
     }
 }
