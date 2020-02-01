@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cosmonaut : MonoBehaviour {
-    
+public class Cosmonaut : MonoBehaviour
+{
+
 
     [Header("Settings")]
     [SerializeField]
@@ -28,6 +29,7 @@ public class Cosmonaut : MonoBehaviour {
 
     [SerializeField]
     private PlayerController playerController;
+    public PlayerController PlayerController => playerController;
 
 
     private List<GravitySource> gravitySources;
@@ -36,24 +38,18 @@ public class Cosmonaut : MonoBehaviour {
 
     public int PlayerIndex { get => m_playerIndex; set => m_playerIndex = value; }
 
-    public PlayerController PlayerController => playerController;
-
-    
-
-    private void Awake() {
+    private void Awake()
+    {
         if (!this.rigidbody)
         {
             this.rigidbody = GetComponent<Rigidbody2D>();
         }
-        
+
         this.gravitySources = new List<GravitySource>();
     }
 
-    private void FixedUpdate() {
-        var x = 0.0f;
-        var y = 0.0f;
-        var jump = false;
-
+    private void FixedUpdate()
+    {
         if (useKeyboard)
         {
             x = Input.GetAxis("Horizontal");
@@ -67,32 +63,40 @@ public class Cosmonaut : MonoBehaviour {
             y = playerController.Move.y;
             jump = playerController.Jump;
         }
-        
+
         var moveDir = new Vector2(x, y).normalized;
 
         var startJump = !this.boostStarted.HasValue
             && jump
             && Time.time > lastBoost + boostCooldown;
-        if (startJump) {
+        if (startJump)
+        {
             this.boostStarted = Time.time;
             this.lastBoost = Time.time;
         }
 
-        if (this.boostStarted.HasValue) {
+        if (this.boostStarted.HasValue)
+        {
             var boostProgress = (Time.time - this.boostStarted.Value) / this.boostTime;
 
-            if (boostProgress > 1) {
+            if (boostProgress > 1)
+            {
                 this.boostStarted = null;
-            } else {
+            }
+            else
+            {
                 var boost = moveDir * this.boostCurve.Evaluate(boostProgress) * Time.fixedDeltaTime;
                 this.rigidbody.AddForce(boost);
             }
-        } else {
+        }
+        else
+        {
             var thrust = moveDir * this.thrustSpeed * Time.fixedDeltaTime;
             this.rigidbody.AddForce(thrust);
         }
 
-        foreach (var gravitySource in this.gravitySources) {
+        foreach (var gravitySource in this.gravitySources)
+        {
             var gravityDir = gravitySource.transform.position - this.transform.position;
             var gravityStrength = gravitySource.GetStrengthAt(this.transform.position);
             var gravity = new Vector2(gravityDir.x, gravityDir.y) * gravityStrength * Time.fixedDeltaTime;
@@ -101,14 +105,18 @@ public class Cosmonaut : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collider) {
-        if (collider.TryGetComponent<GravitySource>(out var gravitySource)) {
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.TryGetComponent<GravitySource>(out var gravitySource))
+        {
             this.gravitySources.Add(gravitySource);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collider) {
-        if (collider.TryGetComponent<GravitySource>(out var gravitySource)) {
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        if (collider.TryGetComponent<GravitySource>(out var gravitySource))
+        {
             this.gravitySources.Remove(gravitySource);
         }
     }
