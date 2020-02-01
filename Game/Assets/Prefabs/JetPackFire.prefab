@@ -4837,6 +4837,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2321555342539812015}
+  - component: {fileID: 8369197068073537845}
   m_Layer: 0
   m_Name: JetPackFire
   m_TagString: Untagged
@@ -4860,3 +4861,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8369197068073537845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2321555342539452559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9fea85e9969145239a05ec19f25281f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_particleSizes:
+  - 0.5
+  m_particleSpeeds:
+  - 1
+  m_simulationSpeeds:
+  - 2.5
+  m_particles: {fileID: 2321555342553967083}
+  m_light: {fileID: 2321555342545927595}
+  ParticleLevel: 0
