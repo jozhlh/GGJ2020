@@ -203,7 +203,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6715634115575700751}
   - {fileID: 4294704067681559069}
   - {fileID: 6241360855916995790}
   m_Father: {fileID: 359284819325376435}
@@ -222,37 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_smoothValue: 0.05
-  m_toolAttachPoint: {fileID: 6715634115575700751}
---- !u!1 &1790573897041622121
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6715634115575700751}
-  m_Layer: 0
-  m_Name: Hand
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6715634115575700751
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1790573897041622121}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.245, y: 0.037, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7976033072121412223}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_toolAttachPoint: {fileID: 391280636732116262}
 --- !u!1 &4413505144566231026
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +252,7 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 7976033072121412223}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2572819926040445100
 MeshFilter:
@@ -343,6 +312,7 @@ GameObject:
   - component: {fileID: 6495743936624160082}
   - component: {fileID: 3816126115941785410}
   - component: {fileID: 4887764341049404688}
+  - component: {fileID: 6687356064208757304}
   m_Layer: 0
   m_Name: Tool Grabber
   m_TagString: Untagged
@@ -360,8 +330,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.06, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
-  m_Children:
-  - {fileID: 8982138521036358082}
+  m_Children: []
   m_Father: {fileID: 359284819325376435}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -394,44 +363,13 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.95
---- !u!1 &7516674680919803748
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8982138521036358082}
-  - component: {fileID: 5889476098962701562}
-  m_Layer: 0
-  m_Name: Tool Catch Radius
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8982138521036358082
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7516674680919803748}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6495743936624160082}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &5889476098962701562
+--- !u!58 &6687356064208757304
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7516674680919803748}
+  m_GameObject: {fileID: 5939126832666119728}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -486,7 +424,7 @@ PrefabInstance:
     - target: {fileID: 200576887409470992, guid: 328574771e51152409cd96246493e8e2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 200576887409470992, guid: 328574771e51152409cd96246493e8e2,
         type: 3}
@@ -503,6 +441,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1697750872449767113, guid: 328574771e51152409cd96246493e8e2,
+        type: 3}
+      propertyPath: m_RigLayers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697750872449767113, guid: 328574771e51152409cd96246493e8e2,
+        type: 3}
+      propertyPath: m_RigLayers.Array.data[0].active
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1976445580345515355, guid: 328574771e51152409cd96246493e8e2,
         type: 3}
       propertyPath: m_Name
@@ -513,6 +461,12 @@ PrefabInstance:
 --- !u!4 &6241360855916995790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 200576887409470992, guid: 328574771e51152409cd96246493e8e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 6076854791915703006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &391280636732116262 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5853351953675585528, guid: 328574771e51152409cd96246493e8e2,
     type: 3}
   m_PrefabInstance: {fileID: 6076854791915703006}
   m_PrefabAsset: {fileID: 0}
