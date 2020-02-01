@@ -7,7 +7,8 @@ public class FireExtinguisherSpray : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.TryGetComponent<Fire>(out var fire))
+        if (other.TryGetComponent<Hazard>(out var fire)
+            && fire.Kind == HazardKind.Fire)
         {
             fire.Extinguish(Time.fixedDeltaTime * extinguishSpeed);
         }
@@ -15,7 +16,7 @@ public class FireExtinguisherSpray : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.collider.TryGetComponent<Fire>(out var fire))
+        if (collision.collider.TryGetComponent<Hazard>(out var fire))
         {
             fire.Extinguish(Time.fixedDeltaTime * extinguishSpeed);
         }
