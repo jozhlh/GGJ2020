@@ -59,8 +59,70 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask: []
-      maskType: 3
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Grab
+        weight: 0
+      - path: Root/Hips
+        weight: 1
+      - path: Root/Hips/L_UpLeg
+        weight: 1
+      - path: Root/Hips/L_UpLeg/L_Leg
+        weight: 1
+      - path: Root/Hips/L_UpLeg/L_Leg/L_Ankle
+        weight: 1
+      - path: Root/Hips/R_UpLeg
+        weight: 1
+      - path: Root/Hips/R_UpLeg/R_Leg
+        weight: 1
+      - path: Root/Hips/R_UpLeg/R_Leg/R_Ankle
+        weight: 1
+      - path: Root/Hips/Spine
+        weight: 1
+      - path: Root/Hips/Spine/Chest
+        weight: 1
+      - path: Root/Hips/Spine/Chest/UpperChest
+        weight: 1
+      - path: Root/Hips/Spine/Chest/UpperChest/Backpack
+        weight: 1
+      - path: Root/Hips/Spine/Chest/UpperChest/L_Shoulder
+        weight: 1
+      - path: Root/Hips/Spine/Chest/UpperChest/L_Shoulder/L_UpArm
+        weight: 1
+      - path: Root/Hips/Spine/Chest/UpperChest/L_Shoulder/L_UpArm/L_Arm
+        weight: 1
+      - path: Root/Hips/Spine/Chest/UpperChest/L_Shoulder/L_UpArm/L_Arm/L_Palm
+        weight: 1
+      - path: Root/Hips/Spine/Chest/UpperChest/L_Shoulder/L_UpArm/L_Arm/L_Palm/L_Fingers1
+        weight: 1
+      - path: Root/Hips/Spine/Chest/UpperChest/L_Shoulder/L_UpArm/L_Arm/L_Palm/L_Fingers1/L_Fingers2
+        weight: 1
+      - path: Root/Hips/Spine/Chest/UpperChest/L_Shoulder/L_UpArm/L_Arm/L_Palm/L_Thumb1
+        weight: 1
+      - path: Root/Hips/Spine/Chest/UpperChest/Neck
+        weight: 1
+      - path: Root/Hips/Spine/Chest/UpperChest/Neck/Head
+        weight: 1
+      - path: Root/Hips/Spine/Chest/UpperChest/Neck/Head/Helmet
+        weight: 1
+      - path: Root/Hips/Spine/Chest/UpperChest/R_Shoulder
+        weight: 1
+      - path: Root/Hips/Spine/Chest/UpperChest/R_Shoulder/R_UpArm
+        weight: 1
+      - path: Root/Hips/Spine/Chest/UpperChest/R_Shoulder/R_UpArm/R_Arm
+        weight: 1
+      - path: Root/Hips/Spine/Chest/UpperChest/R_Shoulder/R_UpArm/R_Arm/R_Palm
+        weight: 1
+      - path: Root/Hips/Spine/Chest/UpperChest/R_Shoulder/R_UpArm/R_Arm/R_Palm/R_Fingers1
+        weight: 1
+      - path: Root/Hips/Spine/Chest/UpperChest/R_Shoulder/R_UpArm/R_Arm/R_Palm/R_Fingers1/R_Fingers2
+        weight: 1
+      - path: Root/Hips/Spine/Chest/UpperChest/R_Shoulder/R_UpArm/R_Arm/R_Palm/R_Thumb1
+        weight: 1
+      maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     isReadable: 0

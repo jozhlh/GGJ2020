@@ -65,7 +65,7 @@ ModelImporter:
       - path: Root
         weight: 1
       - path: Root/Grab
-        weight: 1
+        weight: 0
       - path: Root/Hips
         weight: 1
       - path: Root/Hips/L_UpLeg

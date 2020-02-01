@@ -8,7 +8,7 @@ public class CharacterVisuals : MonoBehaviour
 
     [SerializeField] private Transform m_toolAttachPoint = null;
 
-    [SerializeField] private Rigidbody m_rigidBody;
+    [SerializeField] private Transform m_parent;
 
     [SerializeField] private PlayerController m_input;
 
@@ -34,12 +34,12 @@ public class CharacterVisuals : MonoBehaviour
 
         if (m_input.Aim.x > 0.1f)
         {
-            m_toolAttachPoint.RotateAround( m_rigidBody.transform.position, Vector3.forward, m_rotateSpeed * Time.deltaTime);
+            m_toolAttachPoint.RotateAround( m_parent.transform.position, Vector3.forward, m_rotateSpeed * Time.deltaTime);
         }
 
         if (m_input.Aim.x < 0.1f)
         {
-            m_toolAttachPoint.RotateAround( m_rigidBody.transform.position, Vector3.forward, -m_rotateSpeed * Time.deltaTime);
+            m_toolAttachPoint.RotateAround( m_parent.transform.position, Vector3.forward, -m_rotateSpeed * Time.deltaTime);
         }
         // var sideLook = Vector2.Lerp(transform.right, m_lookAtTarget, m_smoothValue);
         // transform.right = sideLook.normalized;
