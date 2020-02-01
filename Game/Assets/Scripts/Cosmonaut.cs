@@ -36,9 +36,6 @@ public class Cosmonaut : MonoBehaviour
     public FloatingBody FloatingObject => floatingObject;
 
     [SerializeField]
-    private ToolGrabber toolGrabber;
-
-    [SerializeField]
     private CharacterVisuals m_visuals;
 
     [SerializeField] private ParticleLevelManager m_particles;
@@ -47,6 +44,17 @@ public class Cosmonaut : MonoBehaviour
 
     private Coroutine currentGrab;
     private Coroutine currentDeath;
+
+    [SerializeField]
+    private float grabPullRadius = 1f;
+
+    [SerializeField]
+    private float grabPullForce = 1000f;
+
+    private readonly List<Tool> pullingTools = new List<Tool>();
+
+    [SerializeField]
+    private float grabCatchRadius = 3f;
 
     private int m_playerIndex = 0;
 
@@ -109,20 +117,50 @@ public class Cosmonaut : MonoBehaviour
     // then, the player has to release and press again to drop it
     private IEnumerator Grab()
     {
+        var hits = new Collider[10];
         if (!heldTool)
         {
-            toolGrabber.BeginGrabbing();
-
-            while (!toolGrabber.HasGrabbedTool && IsInputGrabbing())
+            Tool grabbedTool = null;
+            while (!grabbedTool && IsInputGrabbing())
             {
+                pullingTools.Clear();
+
+                var toolMask = LayerMask.GetMask("Tools");
+                var pullHits = Physics.OverlapSphereNonAlloc(transform.position, grabPullRadius,
+                    hits, toolMask, QueryTriggerInteraction.Ignore);
+
+                for (var i = 0; i < pullHits; ++i)
+                {
+                    if (hits[i].GetComponentInParent<Tool>() is Tool tool)
+                    {
+                        pullingTools.Add(tool);
+                    }
+                }
+
+                var catchHits = Physics.OverlapSphereNonAlloc(transform.position, grabCatchRadius,
+                    hits,toolMask, QueryTriggerInteraction.Ignore);
+
+                for (var i = 0; i < catchHits; ++i)
+                {
+                    if (hits[i].GetComponentInParent<Tool>() is Tool tool)
+                    {
+                        grabbedTool = tool;
+                        break;
+                    }
+                }
+                if (grabbedTool)
+                {
+                    break;
+                }
+
                 yield return null;
             }
 
-            var grabbed = toolGrabber.EndGrabbing();
+            pullingTools.Clear();
 
-            if (grabbed != null)
+            if (grabbedTool != null)
             {
-                heldTool = grabbed;
+                heldTool = grabbedTool;
                 heldTool.Grab(this);
 
                 // wait after pickup for release and press
@@ -220,10 +258,17 @@ public class Cosmonaut : MonoBehaviour
             {
                 m_particles.ParticleLevel = -1;
             }
-            
+
         }
 
         m_visuals.SetLookDirection( aim );
+
+        // pull tools towards us while in grab+pull mode
+        foreach (var tool in pullingTools)
+        {
+            var dir = (transform.position - tool.transform.position).normalized;
+            tool.FloatingBody.Rigidbody.AddForce(dir * grabPullForce * Time.deltaTime);
+        }
     }
 
     public void Die()
@@ -268,5 +313,12 @@ public class Cosmonaut : MonoBehaviour
         currentDeath = null;
 
         GameEvents.OnPlayerDied(this);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, grabCatchRadius);
+        Gizmos.DrawWireSphere(transform.position, grabPullRadius);
     }
 }

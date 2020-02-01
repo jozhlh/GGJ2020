@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6561975938203482070}
   - component: {fileID: 1016505302889261216}
   - component: {fileID: 7986894840227388536}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Spray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 2656334787024705380}
   - component: {fileID: 6850961237224239074}
   - component: {fileID: 3336658837887097219}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fire Extinguisher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,6 +159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c358f644e785bb64f8c683957d11e0a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mass: 3
+  constraints: 0
 --- !u!136 &3336658837887097219
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -183,7 +185,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2456963196065968152}
   - component: {fileID: 2047803574259821585}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +265,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6067816159702609700}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7281193319046077375}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Extinguisher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +328,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5696535197787453227}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Spray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,7 +361,7 @@ GameObject:
   - component: {fileID: 4512340322876578927}
   - component: {fileID: 1852492877060676348}
   - component: {fileID: 2887248541197822345}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

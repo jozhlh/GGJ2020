@@ -6,6 +6,9 @@ public class FloatingBody : MonoBehaviour
     [SerializeField]
     private float mass = 1.0f;
 
+    [SerializeField]
+    private RigidbodyConstraints constraints;
+
     private new Rigidbody rigidbody;
     public Rigidbody Rigidbody => rigidbody;
 
@@ -19,8 +22,10 @@ public class FloatingBody : MonoBehaviour
     {
         rigidbody = gameObject.AddComponent<Rigidbody>();
         rigidbody.mass = mass;
-        rigidbody.constraints |= RigidbodyConstraints.FreezePositionZ;
-        rigidbody.constraints |= RigidbodyConstraints.FreezeRotationY;
+        rigidbody.constraints = constraints
+            | RigidbodyConstraints.FreezePositionZ
+            | RigidbodyConstraints.FreezeRotationY;
+        rigidbody.useGravity = false;
     }
 
     private void OnDisable()
