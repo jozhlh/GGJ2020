@@ -20,6 +20,7 @@ public class MultiplayerManager : MonoBehaviour
     private Transform[] m_spawnPositions = new Transform[4];
 
     private readonly List<Cosmonaut> m_activePlayers = new List<Cosmonaut>();
+    public int ActivePlayerCount => m_activePlayers.Count;
 
     private float m_startCount = 0.0f;
 

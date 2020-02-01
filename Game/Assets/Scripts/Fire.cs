@@ -15,6 +15,8 @@ public class Fire : MonoBehaviour
 
     private float lastDamageTick;
 
+    private MultiplayerManager multiplayer;
+
     [SerializeField]
     private float growSpeed = 5.0f;
 
@@ -26,6 +28,8 @@ public class Fire : MonoBehaviour
 
     private void Awake()
     {
+        multiplayer = FindObjectOfType<MultiplayerManager>();
+
         lastDamageTick = Time.time;
 
         var sizeAmount = Random.Range(0f, 0.75f);
@@ -69,6 +73,12 @@ public class Fire : MonoBehaviour
 
     private void Update()
     {
+        // don't let fire grow before game begins
+        if (multiplayer && multiplayer.ActivePlayerCount == 0)
+        {
+            return;
+        }
+
         if (health > 0)
         {
             health = Mathf.Min(maxHealth, health + growSpeed * Time.deltaTime);
