@@ -6,7 +6,7 @@ public class ToolGrabber : GravitySource
     private float grabStrength;
 
     private readonly List<Tool> grabbableTools = new List<Tool>();
-    public IReadOnlyList<Tool> GrabbableTools => grabbableTools;
+    public bool HasGrabbedTool => grabbableTools.Count > 0;
 
     protected override void Awake()
     {
@@ -21,9 +21,12 @@ public class ToolGrabber : GravitySource
         Strength = grabStrength;
     }
 
-    public void EndGrabbing()
+    public Tool EndGrabbing()
     {
         Strength = 0;
+        var result = grabbableTools.Count > 0 ? grabbableTools[0] : null;
+        grabbableTools.Clear();
+        return result;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

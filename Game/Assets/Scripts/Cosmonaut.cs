@@ -110,16 +110,16 @@ public class Cosmonaut : MonoBehaviour
         {
             toolGrabber.BeginGrabbing();
 
-            while (toolGrabber.GrabbableTools.Count == 0 && IsInputGrabbing())
+            while (!toolGrabber.HasGrabbedTool && IsInputGrabbing())
             {
                 yield return null;
             }
 
-            toolGrabber.EndGrabbing();
+            var grabbed = toolGrabber.EndGrabbing();
 
-            if (toolGrabber.GrabbableTools.Count > 0)
+            if (grabbed != null)
             {
-                heldTool = toolGrabber.GrabbableTools[0];
+                heldTool = grabbed;
                 heldTool.Grab(this);
 
                 // wait after pickup for release and press

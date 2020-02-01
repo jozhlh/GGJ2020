@@ -189,6 +189,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2656334787024705381}
   - component: {fileID: 2656334787024705380}
+  - component: {fileID: 6850961237224239074}
+  - component: {fileID: 9027747637642139401}
+  - component: {fileID: 8385444235618251724}
   m_Layer: 0
   m_Name: Fire Extinguisher
   m_TagString: Untagged
@@ -223,9 +226,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d5b05b0a01999f4ca8d6c339bd918cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatingBody: {fileID: 5485921565035602230}
+  floatingBody: {fileID: 6850961237224239074}
   pushForce: 500
   spray: {fileID: 6561975938203482070}
+--- !u!114 &6850961237224239074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2656334787024705384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c358f644e785bb64f8c683957d11e0a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbody: {fileID: 9027747637642139401}
+--- !u!50 &9027747637642139401
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2656334787024705384}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!70 &8385444235618251724
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2656334787024705384}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.004219711}
+  m_Size: {x: 0.14, y: 0.27702445}
+  m_Direction: 0
 --- !u!1 &3253673733373321934
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,9 +400,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7281193319046077375}
-  - component: {fileID: 5485921565035602230}
-  - component: {fileID: 2339883769207169949}
-  - component: {fileID: 8403286152283108646}
   m_Layer: 0
   m_Name: Extinguisher
   m_TagString: Untagged
@@ -373,56 +423,6 @@ Transform:
   m_Father: {fileID: 2656334787024705381}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5485921565035602230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7371909706040070614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c358f644e785bb64f8c683957d11e0a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidbody: {fileID: 2339883769207169949}
---- !u!50 &2339883769207169949
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7371909706040070614}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!70 &8403286152283108646
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7371909706040070614}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.004219711}
-  m_Size: {x: 0.14, y: 0.27702445}
-  m_Direction: 0
 --- !u!1 &8226341412309931658
 GameObject:
   m_ObjectHideFlags: 0
