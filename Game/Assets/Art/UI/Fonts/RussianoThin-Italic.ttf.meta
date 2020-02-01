@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: b1ae7d3c739c9a544a528d9c4deb6879
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Russiano Thin
+  fontNames:
+  - Russiano Thin
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 51749add9a0297f49bf036475aa77b5b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
