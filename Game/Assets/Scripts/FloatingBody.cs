@@ -30,7 +30,7 @@ public class FloatingBody : MonoBehaviour
         {
             if (!gravitySource.transform.IsChildOf(transform))
             {
-                this.gravitySources.Remove(gravitySource);
+                this.gravitySources.Add(gravitySource);
             }
         }
     }

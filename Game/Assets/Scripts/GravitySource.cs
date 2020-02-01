@@ -4,6 +4,11 @@ public class GravitySource : MonoBehaviour
 {
     [SerializeField]
     private float strength = 100f;
+    public float Strength
+    {
+        get => strength;
+        set => strength = value;
+    }
 
     private Collider2D trigger;
 
@@ -30,7 +35,7 @@ public class GravitySource : MonoBehaviour
                 {
                     var distSqr = ((Vector2)circleTrigger.transform.position - pos).sqrMagnitude;
                     var radiusSqr = circleTrigger.radius * circleTrigger.radius;
-                    var power = 1f - Mathf.Clamp01(distSqr / radiusSqr);
+                    var power = distSqr / radiusSqr;
 
                     return this.strength * power;
                 }
