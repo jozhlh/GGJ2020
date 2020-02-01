@@ -6,13 +6,26 @@ public class FireExtinguisher : Tool
     private float pushForce = 500f;
 
     [SerializeField]
-    private FireExtinguisherSpray spray;
+    private float spraySize = 2f;
+
+    [SerializeField]
+    private GameObject spray;
+
+    [SerializeField]
+    private GameObject sprayCenter;
+
+    private Collider[] sprayHits = new Collider[4];
+    private LayerMask hazardMask;
+
+    [SerializeField]
+    private float sprayPower = 100f;
 
     private Cosmonaut currentUser;
 
     private void Awake()
     {
         spray.gameObject.SetActive(false);
+        hazardMask = LayerMask.GetMask("Hazards");
     }
 
     public override void BeginUsing(Cosmonaut user)
@@ -35,6 +48,23 @@ public class FireExtinguisher : Tool
         get => !!currentUser;
     }
 
+    private void Update()
+    {
+        if (currentUser)
+        {
+            var sprayCount = Physics.OverlapSphereNonAlloc(sprayCenter.transform.position, spraySize,
+                sprayHits, hazardMask);
+            for (var i = 0; i < sprayCount; i += 1)
+            {
+                if (sprayHits[i].TryGetComponent<Hazard>(out var hazard)
+                    && hazard.Kind == HazardKind.Fire)
+                {
+                    hazard.Extinguish(sprayPower * Time.deltaTime);
+                }
+            }
+        }
+    }
+
     private void FixedUpdate()
     {
         if (!currentUser)
@@ -43,5 +73,14 @@ public class FireExtinguisher : Tool
         }
 
         currentUser.FloatingObject.Rigidbody.AddForce(transform.right * pushForce * Time.fixedDeltaTime);
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (sprayCenter)
+        {
+            Gizmos.color = Color.white;
+            Gizmos.DrawWireSphere(sprayCenter.transform.position, spraySize);
+        }
     }
 }
