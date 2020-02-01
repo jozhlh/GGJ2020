@@ -225,8 +225,6 @@ public class Cosmonaut : MonoBehaviour
             }
             
         }
-
-        m_visuals.SetLookDirection( aim );
     }
 
     public void Die()
