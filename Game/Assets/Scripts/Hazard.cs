@@ -40,6 +40,8 @@ public class Hazard : MonoBehaviour
     private HazardKind kind;
     public HazardKind Kind => kind;
 
+    private readonly RaycastHit2D[] colliderHits = new RaycastHit2D[4];
+
     private void Awake()
     {
         multiplayer = FindObjectOfType<MultiplayerManager>();
@@ -101,6 +103,11 @@ public class Hazard : MonoBehaviour
 
         if (health > 0)
         {
+            if (kind != HazardKind.GasLeak)
+            {
+                HurtPlayers();
+            }
+
             health = Mathf.Min(maxHealth, health + growSpeed * Time.deltaTime);
 
             var healthProgress = Mathf.InverseLerp(minHealth, maxHealth, Mathf.Max(minHealth, health));
@@ -108,28 +115,65 @@ public class Hazard : MonoBehaviour
 
             mainVisual.transform.localScale = new Vector3(scale, scale, scale);
 
-            if (Time.time - lastDamageTick > damageTickTime
-                && kind != HazardKind.Alien)
+            switch (kind)
             {
-                lastDamageTick = Time.time;
-
-                var damageScale = Mathf.InverseLerp(minHealth, maxHealth, health);
-                int damage;
-                if (damageScale < medDamageThreshold)
+                case HazardKind.Alien:
                 {
-                    damage = 1;
-                }
-                else if (damageScale < bigDamageThreshold)
-                {
-                    damage = 2;
-                }
-                else
-                {
-                    damage = 3;
+                    HurtPlayers();
+                    break;
                 }
 
-                GameEvents.OnDamage(damage);
+                case HazardKind.Fire:
+                {
+                    HurtPlayers();
+                    DamageStation();
+                    break;
+                }
+
+                case HazardKind.GasLeak:
+                {
+                    DamageStation();
+                    break;
+                }
             }
+        }
+    }
+
+    private void HurtPlayers()
+    {
+        var filter = new ContactFilter2D().NoFilter();
+        var hits = collider.Cast(Vector2.zero, filter, colliderHits, 0);
+        for (var i = 0; i < hits; ++i)
+        {
+            if (colliderHits[i].collider.TryGetComponent<Cosmonaut>(out var player))
+            {
+                player.Die();
+            }
+        }
+    }
+
+    private void DamageStation()
+    {
+        if (Time.time - lastDamageTick > damageTickTime)
+        {
+            lastDamageTick = Time.time;
+
+            var damageScale = Mathf.InverseLerp(minHealth, maxHealth, health);
+            int damage;
+            if (damageScale < medDamageThreshold)
+            {
+                damage = 1;
+            }
+            else if (damageScale < bigDamageThreshold)
+            {
+                damage = 2;
+            }
+            else
+            {
+                damage = 3;
+            }
+
+            GameEvents.OnDamage(damage);
         }
     }
 }
