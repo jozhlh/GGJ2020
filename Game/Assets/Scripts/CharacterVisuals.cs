@@ -8,7 +8,7 @@ public class CharacterVisuals : MonoBehaviour
 
     [SerializeField] private Transform m_toolAttachPoint = null;
 
-    [SerializeField] private Rigidbody2D m_rigidBody;
+    [SerializeField] private Rigidbody m_rigidBody;
 
     [SerializeField] private PlayerController m_input;
 
@@ -30,7 +30,7 @@ public class CharacterVisuals : MonoBehaviour
             transform.forward = -Vector3.right;
         }
 
-        
+
 
         if (m_input.Aim.x > 0.1f)
         {

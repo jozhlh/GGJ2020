@@ -4,27 +4,35 @@ using UnityEngine;
 public class FloatingBody : MonoBehaviour
 {
     [SerializeField]
-    private new Rigidbody2D rigidbody;
-    public Rigidbody2D Rigidbody => rigidbody;
+    private float mass = 1.0f;
+
+    private new Rigidbody rigidbody;
+    public Rigidbody Rigidbody => rigidbody;
 
     private readonly List<GravitySource> gravitySources = new List<GravitySource>();
 
     private void Awake()
     {
-        rigidbody.gravityScale = 0;
     }
 
     private void OnEnable()
     {
-        rigidbody.simulated = true;
+        rigidbody = gameObject.AddComponent<Rigidbody>();
+        rigidbody.mass = mass;
+        rigidbody.constraints |= RigidbodyConstraints.FreezePositionZ;
+        rigidbody.constraints |= RigidbodyConstraints.FreezeRotationY;
     }
 
     private void OnDisable()
     {
-        rigidbody.simulated = false;
+        if (rigidbody)
+        {
+            Destroy(rigidbody);
+            rigidbody = null;
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerEnter(Collider collider)
     {
         if (collider.TryGetComponent<GravitySource>(out var gravitySource))
         {
@@ -35,7 +43,7 @@ public class FloatingBody : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collider)
+    private void OnTriggerExit(Collider collider)
     {
         if (collider.TryGetComponent<GravitySource>(out var gravitySource))
         {
@@ -49,7 +57,7 @@ public class FloatingBody : MonoBehaviour
         {
             var (gravityStrength, gravityTarget) = gravitySource.GetStrengthAndTargetAt(this.transform.position);
             var gravityDir = gravityTarget - this.transform.position;
-            
+
             var gravity = new Vector2(gravityDir.x, gravityDir.y) * gravityStrength * Time.fixedDeltaTime;
 
             this.rigidbody.AddForce(gravity);
