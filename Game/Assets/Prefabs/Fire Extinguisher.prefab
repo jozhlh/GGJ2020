@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 6561975938203482070}
   - component: {fileID: 1016505302889261216}
   - component: {fileID: 7986894840227388536}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +432,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5696535197787453227}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
