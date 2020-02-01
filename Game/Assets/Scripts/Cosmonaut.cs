@@ -43,6 +43,8 @@ public class Cosmonaut : MonoBehaviour
     private GravitySource grabGravity;
     private Coroutine currentGrab;
 
+    private float grabStrength;
+
     private int m_playerIndex = 0;
 
     public int PlayerIndex { get => m_playerIndex; set => m_playerIndex = value; }
@@ -54,13 +56,14 @@ public class Cosmonaut : MonoBehaviour
             this.floatingObject = GetComponent<FloatingBody>();
         }
 
-        this.grabGravity.enabled = false;
+        grabStrength = grabGravity.Strength;
+        grabGravity.Strength = 0;
     }
 
     private void OnDisable()
     {
         currentGrab = null;
-        grabGravity.enabled = false;
+        grabGravity.Strength = 0;
     }
 
     private void Update()
@@ -109,14 +112,14 @@ public class Cosmonaut : MonoBehaviour
     {
         if (!heldTool)
         {
-            grabGravity.enabled = true;
+            grabGravity.Strength = grabStrength;
 
             while (grabbableTools.Count == 0 && IsInputGrabbing())
             {
                 yield return null;
             }
 
-            grabGravity.enabled = false;
+            grabGravity.Strength = 0;
 
             if (grabbableTools.Count > 0)
             {
@@ -204,17 +207,17 @@ public class Cosmonaut : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collider.GetComponentInParent<Tool>() is Tool tool)
+        if (collision.collider.GetComponentInParent<Tool>() is Tool tool)
         {
             this.grabbableTools.Add(tool);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collider)
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collider.GetComponentInParent<Tool>() is Tool tool)
+        if (collision.collider.GetComponentInParent<Tool>() is Tool tool)
         {
             this.grabbableTools.Remove(tool);
         }
