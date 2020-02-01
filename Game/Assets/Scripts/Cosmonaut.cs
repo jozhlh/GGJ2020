@@ -17,6 +17,7 @@ public class Cosmonaut : MonoBehaviour {
     [SerializeField]
     private AnimationCurve boostCurve = AnimationCurve.EaseInOut(0, 5000f, 1, 0f);
     private float boostTime => this.boostCurve.keys[this.boostCurve.keys.Length - 1].time;
+
     private float? boostStarted;
 
     private float lastBoost = -999;
@@ -30,6 +31,14 @@ public class Cosmonaut : MonoBehaviour {
 
 
     private List<GravitySource> gravitySources;
+
+    private int m_playerIndex = 0;
+
+    public int PlayerIndex { get => m_playerIndex; set => m_playerIndex = value; }
+
+    public PlayerController PlayerController => playerController;
+
+    
 
     private void Awake() {
         if (!this.rigidbody)

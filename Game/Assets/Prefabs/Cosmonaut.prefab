@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4db06328b8569847b48ea60209e7317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useKeyboard: 0
   thrustSpeed: 500
   boostCooldown: 3
   boostCurve:
@@ -206,4 +207,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd8f75113ce91f40aa7366d2194e673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playerNum: 0
+  m_input: {fileID: 7988642128578642713}
