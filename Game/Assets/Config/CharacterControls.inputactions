@@ -31,9 +31,9 @@
                 },
                 {
                     "name": "Interact",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "9556c37b-c580-495b-b039-e8335f5bd7bb",
-                    "expectedControlType": "",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
                 },
@@ -63,9 +63,9 @@
                 },
                 {
                     "name": "Grab",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "0441148b-ef71-4de5-a4d0-2001b83cba2f",
-                    "expectedControlType": "",
+                    "expectedControlType": "Analog",
                     "processors": "",
                     "interactions": ""
                 }
@@ -85,7 +85,7 @@
                 {
                     "name": "",
                     "id": "937bfd4e-1c06-438b-86fd-9a5f06c72744",
-                    "path": "<DualShockGamepad>/leftShoulder",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -151,7 +151,7 @@
                 {
                     "name": "",
                     "id": "42aab389-1d7b-4be3-b13e-aeea713a6da9",
-                    "path": "<Gamepad>/rightShoulder",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

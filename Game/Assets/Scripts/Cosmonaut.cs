@@ -29,8 +29,6 @@ public class Cosmonaut : MonoBehaviour
     private PlayerController playerController;
     public PlayerController PlayerController => playerController;
 
-    public Vector2 HandPosition => (Vector2)m_visualsTransform.position + Vector2.right * 0.1f;
-
     private Tool heldTool;
 
     private readonly List<Tool> grabbableTools = new List<Tool>();
@@ -43,7 +41,9 @@ public class Cosmonaut : MonoBehaviour
     private GravitySource grabGravity;
 
     [SerializeField]
-    private Transform m_visualsTransform;
+    private CharacterVisuals m_visuals;
+
+    public Transform HandPosition => m_visuals.Hand;
 
     private Coroutine currentGrab;
 
@@ -215,7 +215,7 @@ public class Cosmonaut : MonoBehaviour
             this.floatingObject.Rigidbody.AddForce(thrust);
         }
 
-        m_visualsTransform.LookAt(m_visualsTransform.position + aim);
+        m_visuals.SetLookDirection( aim );
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

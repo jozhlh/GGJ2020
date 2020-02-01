@@ -72,16 +72,16 @@ public class PlayerController : MonoBehaviour
     }
 
     // Input system callback event
-    private void OnInteract()
+    private void OnInteract( InputValue value )
     {
-        m_cachedInteract = true;
+        m_cachedInteract = value.Get<float>() > 0;
         Debug.Log("On Interact");
     }
 
-    private void OnGrab()
+    private void OnGrab( InputValue value )
     {
-        m_cachedGrab = true;
-        Debug.Log("On Grab");
+        m_cachedGrab = value.Get<float>() > 0;
+        Debug.Log($"On Grab {m_cachedGrab}");
     }
 
     // Input system callback event

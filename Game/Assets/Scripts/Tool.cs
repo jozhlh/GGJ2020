@@ -11,8 +11,9 @@ public abstract class Tool : MonoBehaviour
 
     public void Grab(Cosmonaut holder)
     {
-        transform.SetParent(holder.transform, true);
-        transform.position = holder.HandPosition;
+        transform.SetParent( holder.HandPosition, false);
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
 
         floatingBody.enabled = false;
     }
