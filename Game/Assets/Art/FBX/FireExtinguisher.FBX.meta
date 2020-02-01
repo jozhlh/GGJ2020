@@ -1,16 +1,38 @@
 fileFormatVersion: 2
-guid: 0c94ada2da9c9934d8d64bbbc738e1d1
+guid: 3765c2444c187484fbc0cf20d87402f2
 ModelImporter:
   serializedVersion: 19300
-  internalIDToNameTable:
+  internalIDToNameTable: []
+  externalObjects:
   - first:
-      74: 1827226128182048838
-    second: Take 001
-  externalObjects: {}
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Emissive_Green
+    second: {fileID: 2100000, guid: 4bcdbc741520ae24d80707de98724fb6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Emissive_Red
+    second: {fileID: 2100000, guid: 1d4dfb3abf2d03d498e9124a236eb134, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: UTIL_Black
+    second: {fileID: 2100000, guid: 18d2530f49a7a1e4b8ca311be9866c37, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: UTIL_Grey
+    second: {fileID: 2100000, guid: 9523b95aa794a9644b5ca4e527f9ccbf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: UTIL_Red
+    second: {fileID: 2100000, guid: 49645d35027e2974aa2d6d0736fa1777, type: 2}
   materials:
     materialImportMode: 1
-    materialName: 0
-    materialSearch: 1
+    materialName: 1
+    materialSearch: 2
     materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
@@ -71,7 +93,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []
@@ -90,7 +112,7 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   avatarSetup: 0
   additionalBone: 0
