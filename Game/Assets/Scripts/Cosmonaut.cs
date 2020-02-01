@@ -198,7 +198,10 @@ public class Cosmonaut : MonoBehaviour
             {
                 this.boostStarted = null;
 
-                m_particles.ParticleLevel = -1;
+                if(m_particles)
+                {
+                    m_particles.ParticleLevel = -1;
+                }
             }
             else
             {

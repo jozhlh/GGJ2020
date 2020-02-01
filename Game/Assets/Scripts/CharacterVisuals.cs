@@ -20,26 +20,26 @@ public class CharacterVisuals : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_input.Move.x > 0.2f)
+        if (m_input.Move.x > 0.5f)
         {
             transform.forward = Vector3.right;
         }
 
-        if (m_input.Move.x < 0.2f)
+        if (m_input.Move.x < -0.5f)
         {
             transform.forward = -Vector3.right;
         }
 
         
 
-        if (m_input.Aim.x > 0.1f)
-        {
-            m_toolAttachPoint.RotateAround( m_parent.transform.position, Vector3.forward, m_rotateSpeed * Time.deltaTime);
-        }
-
-        if (m_input.Aim.x < 0.1f)
+        if (m_input.Aim.x > 0.5f)
         {
             m_toolAttachPoint.RotateAround( m_parent.transform.position, Vector3.forward, -m_rotateSpeed * Time.deltaTime);
+        }
+
+        if (m_input.Aim.x < -0.5f)
+        {
+            m_toolAttachPoint.RotateAround( m_parent.transform.position, Vector3.forward, m_rotateSpeed * Time.deltaTime);
         }
         // var sideLook = Vector2.Lerp(transform.right, m_lookAtTarget, m_smoothValue);
         // transform.right = sideLook.normalized;
