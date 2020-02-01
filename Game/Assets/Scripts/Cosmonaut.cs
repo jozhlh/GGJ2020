@@ -2,10 +2,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Cosmonaut : MonoBehaviour {
-    private Rigidbody2D rigidbody;
+    
+
+    [Header("Settings")]
+    [SerializeField]
+    private bool useKeyboard = false;
 
     [SerializeField]
     private float thrustSpeed = 1000f;
+
+    [SerializeField]
+    private float boostCooldown = 3f;
 
     [SerializeField]
     private AnimationCurve boostCurve = AnimationCurve.EaseInOut(0, 5000f, 1, 0f);
@@ -14,23 +21,48 @@ public class Cosmonaut : MonoBehaviour {
 
     private float lastBoost = -999;
 
+    [Header("References")]
     [SerializeField]
-    private float boostCooldown = 3f;
+    private Rigidbody2D rigidbody;
+
+    [SerializeField]
+    private PlayerController playerController;
+
 
     private List<GravitySource> gravitySources;
 
     private void Awake() {
-        this.rigidbody = GetComponent<Rigidbody2D>();
+        if (!this.rigidbody)
+        {
+            this.rigidbody = GetComponent<Rigidbody2D>();
+        }
+        
         this.gravitySources = new List<GravitySource>();
     }
 
     private void FixedUpdate() {
-        var x = Input.GetAxis("Horizontal");
-        var y = Input.GetAxis("Vertical");
+        var x = 0.0f;
+        var y = 0.0f;
+        var jump = false;
+
+        if (useKeyboard)
+        {
+            x = Input.GetAxis("Horizontal");
+            y = Input.GetAxis("Vertical");
+            jump = Input.GetAxis("Jump") > 0;
+        }
+        else
+        {
+            playerController.UpdateInput();
+            x = playerController.Move.x;
+            y = playerController.Move.y;
+            jump = playerController.Jump;
+        }
+        
         var moveDir = new Vector2(x, y).normalized;
 
         var startJump = !this.boostStarted.HasValue
-            && Input.GetAxis("Jump") > 0
+            && jump
             && Time.time > lastBoost + boostCooldown;
         if (startJump) {
             this.boostStarted = Time.time;
