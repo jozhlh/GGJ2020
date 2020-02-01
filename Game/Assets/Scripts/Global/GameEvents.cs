@@ -7,4 +7,6 @@ using UnityEngine;
 public static class GameEvents
 {
     public static Action OnRoundStart = () => {};
+
+    public static Action<int> OnDamage = amount => {};
 }
