@@ -93,7 +93,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_holdToStartDuration: 2
+  m_colors:
+  - {r: 0, g: 1, b: 0.5986471, a: 1}
+  - {r: 1, g: 0, b: 0.63343525, a: 1}
+  - {r: 1, g: 0.764781, b: 0, a: 1}
+  - {r: 0, g: 0.40291214, b: 1, a: 1}
+  m_camera: {fileID: 0}
   m_lobbyUi: {fileID: 0}
+  m_hudUi: {fileID: 0}
   m_spawnPositions:
   - {fileID: 2938614827574661176}
   - {fileID: 1120743168180286845}

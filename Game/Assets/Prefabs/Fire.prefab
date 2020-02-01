@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1411804646386664497}
-  - component: {fileID: 1411804646386664510}
+  - component: {fileID: 260663570945013597}
   - component: {fileID: 1411804646386664511}
   - component: {fileID: 7003892946907499283}
   m_Layer: 9
@@ -30,11 +30,11 @@ Transform:
   m_LocalPosition: {x: 1.41, y: 0.23, z: -4.039823}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1411804647301537222}
+  - {fileID: 8234491707059194756}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1411804646386664510
+--- !u!114 &260663570945013597
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,12 +43,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1411804646386664508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66d2d27d55d13c74ba1e4a0581bf8a50, type: 3}
+  m_Script: {fileID: 11500000, guid: bf100565500dbee4d9e67900d93f32b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  growSpeed: 10
-  renderer: {fileID: 1411804647301537223}
+  growSpeed: 5
+  mainVisual: {fileID: 5108053582183958635}
   collider: {fileID: 1411804646386664511}
+  kind: 0
 --- !u!58 &1411804646386664511
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -110,11 +111,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411804647301537220}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.268125, y: 0.3375, z: 1}
   m_Children: []
-  m_Father: {fileID: 1411804646386664497}
+  m_Father: {fileID: 8234491707059194756}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1411804647301537223
@@ -167,3 +168,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &5108053582183958635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8234491707059194756}
+  m_Layer: 9
+  m_Name: Visuals
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8234491707059194756
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5108053582183958635}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1411804647301537222}
+  m_Father: {fileID: 1411804646386664497}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

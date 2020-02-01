@@ -8,6 +8,9 @@ public class MultiplayerManager : MonoBehaviour
     [SerializeField]
     private float m_holdToStartDuration = 2.0f;
 
+    [SerializeField]
+    private Color[] m_colors = new Color[4];
+
 
     [Header("References")]
     [SerializeField]
@@ -17,9 +20,14 @@ public class MultiplayerManager : MonoBehaviour
     private LobbyUi m_lobbyUi = null;
 
     [SerializeField]
+    private Hud m_hudUi = null;
+
+    [SerializeField]
     private Transform[] m_spawnPositions = new Transform[4];
 
     private readonly List<Cosmonaut> m_activePlayers = new List<Cosmonaut>();
+
+
     public int ActivePlayerCount => m_activePlayers.Count;
 
     private float m_startCount = 0.0f;
@@ -32,6 +40,8 @@ public class MultiplayerManager : MonoBehaviour
     {
         m_inLobby = true;
         m_activePlayers.Clear();
+
+        GameEvents.OnPlayerDied += OnPlayerDied;
     }
 
     void Update()
@@ -63,6 +73,7 @@ public class MultiplayerManager : MonoBehaviour
             Debug.Log("Round Start");
             m_inLobby = false;
             m_camera.GivePlayers(m_activePlayers);
+            m_hudUi.CreatePlayerArrows(m_activePlayers, m_colors);
         }
 
         // if ( countup )
@@ -103,7 +114,13 @@ public class MultiplayerManager : MonoBehaviour
     private void SpawnPlayer( Transform player, int index )
     {
         player.transform.position = m_spawnPositions[index].position;
+        player.transform.rotation = Quaternion.identity;
         player.transform.parent = transform;
+    }
+
+    private void OnPlayerDied(Cosmonaut player)
+    {
+        SpawnPlayer(player.transform, player.PlayerIndex);
     }
 
     private void OnDrawGizmosSelected()
@@ -113,5 +130,10 @@ public class MultiplayerManager : MonoBehaviour
         {
             Gizmos.DrawSphere( spawn.position, 0.2f );
         }
+    }
+
+    private void OnPlayerDied()
+    {
+
     }
 }
