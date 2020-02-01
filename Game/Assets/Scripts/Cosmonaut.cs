@@ -29,8 +29,6 @@ public class Cosmonaut : MonoBehaviour
     private PlayerController playerController;
     public PlayerController PlayerController => playerController;
 
-    public Vector2 HandPosition => (Vector2)transform.position + Vector2.right * 0.1f;
-
     private Tool heldTool;
 
     private readonly List<Tool> grabbableTools = new List<Tool>();
@@ -41,6 +39,12 @@ public class Cosmonaut : MonoBehaviour
 
     [SerializeField]
     private GravitySource grabGravity;
+
+    [SerializeField]
+    private CharacterVisuals m_visuals;
+
+    public Transform HandPosition => m_visuals.Hand;
+
     private Coroutine currentGrab;
 
     private float grabStrength;
@@ -76,7 +80,7 @@ public class Cosmonaut : MonoBehaviour
         }
         else
         {
-            useTool = false;
+            useTool = playerController.Interact;
         }
 
         if (IsInputGrabbing() && currentGrab == null)
@@ -101,7 +105,7 @@ public class Cosmonaut : MonoBehaviour
     {
         return useKeyboard
             ? Input.GetButton("Fire1")
-            : playerController.Interact;
+            : playerController.Grab;
     }
 
     // grabbing state machine. when grabbing, attract nearby objects until
@@ -160,6 +164,7 @@ public class Cosmonaut : MonoBehaviour
         float x;
         float y;
         bool jump;
+        Vector3 aim = Vector3.zero;
 
         if (useKeyboard)
         {
@@ -173,6 +178,10 @@ public class Cosmonaut : MonoBehaviour
             x = playerController.Move.x;
             y = playerController.Move.y;
             jump = playerController.Jump;
+            aim.x = playerController.Aim.x;
+            aim.y = playerController.Aim.y;
+            aim.z = 0.0f;
+            aim = aim.normalized;
         }
 
         var moveDir = new Vector2(x, y).normalized;
@@ -205,6 +214,8 @@ public class Cosmonaut : MonoBehaviour
             var thrust = moveDir * this.thrustSpeed * Time.fixedDeltaTime;
             this.floatingObject.Rigidbody.AddForce(thrust);
         }
+
+        m_visuals.SetLookDirection( aim );
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
