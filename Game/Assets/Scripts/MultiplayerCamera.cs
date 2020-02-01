@@ -44,7 +44,7 @@ public class MultiplayerCamera : MonoBehaviour
         m_players.Clear();
         foreach( var player in cosmonauts)
         {
-            m_players.Add(player.transform);
+            m_players.Add(player.GetComponentInChildren<FloatingBody>().transform);
         }
     }
 
@@ -71,7 +71,6 @@ public class MultiplayerCamera : MonoBehaviour
 
         m_extents.x = Mathf.Abs(top.x - bot.x) + m_extentsBuffer.x;
         m_extents.y = Mathf.Abs(top.y - bot.y) + m_extentsBuffer.y;
-        Debug.Log($"{m_extents.x}, {m_extents.y}");
 
         m_extents.x = Mathf.Max(m_minExtents.x, m_extents.x);
         m_extents.y = Mathf.Max(m_minExtents.y, m_extents.y);
