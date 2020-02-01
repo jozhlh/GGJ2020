@@ -10,4 +10,6 @@ public static class GameEvents
     public static Action OnRoundEnd = () => {};
 
     public static Action<int> OnDamage = amount => {};
+
+    public static Action<Cosmonaut> OnPlayerDied = player => {};
 }

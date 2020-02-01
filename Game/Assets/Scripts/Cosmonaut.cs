@@ -242,11 +242,16 @@ public class Cosmonaut : MonoBehaviour
         }
         while (deathProgress < 1);
 
+        transform.rotation = Quaternion.identity;
+        transform.position = Vector3.zero;
+
         floatingObject.enabled = true;
         foreach (var renderer in renderers)
         {
             renderer.material.color = Color.white;
         }
         currentDeath = null;
+
+        GameEvents.OnPlayerDied(this);
     }
 }

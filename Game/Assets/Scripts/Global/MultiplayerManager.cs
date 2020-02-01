@@ -40,6 +40,8 @@ public class MultiplayerManager : MonoBehaviour
     {
         m_inLobby = true;
         m_activePlayers.Clear();
+
+        GameEvents.OnPlayerDied += OnPlayerDied;
     }
 
     void Update()
@@ -112,7 +114,13 @@ public class MultiplayerManager : MonoBehaviour
     private void SpawnPlayer( Transform player, int index )
     {
         player.transform.position = m_spawnPositions[index].position;
+        player.transform.rotation = Quaternion.identity;
         player.transform.parent = transform;
+    }
+
+    private void OnPlayerDied(Cosmonaut player)
+    {
+        SpawnPlayer(player.transform, player.PlayerIndex);
     }
 
     private void OnDrawGizmosSelected()
@@ -122,5 +130,10 @@ public class MultiplayerManager : MonoBehaviour
         {
             Gizmos.DrawSphere( spawn.position, 0.2f );
         }
+    }
+
+    private void OnPlayerDied()
+    {
+
     }
 }
