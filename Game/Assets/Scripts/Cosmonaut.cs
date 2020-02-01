@@ -198,14 +198,20 @@ public class Cosmonaut : MonoBehaviour
             {
                 this.boostStarted = null;
 
-                m_particles.ParticleLevel = -1;
+                if(m_particles)
+                {
+                    m_particles.ParticleLevel = -1;
+                }
             }
             else
             {
                 var boost = moveDir * this.boostCurve.Evaluate(boostProgress) * Time.fixedDeltaTime;
                 this.floatingObject.Rigidbody.AddForce(boost);
 
-                m_particles.ParticleLevel = 0;
+                if(m_particles)
+                {
+                    m_particles.ParticleLevel = 0;
+                }
             }
         }
         else
@@ -213,7 +219,11 @@ public class Cosmonaut : MonoBehaviour
             var thrust = moveDir * this.thrustSpeed * Time.fixedDeltaTime;
             this.floatingObject.Rigidbody.AddForce(thrust);
 
-            m_particles.ParticleLevel = -1;
+            if(m_particles)
+            {
+                m_particles.ParticleLevel = -1;
+            }
+            
         }
 
         m_visuals.SetLookDirection( aim );

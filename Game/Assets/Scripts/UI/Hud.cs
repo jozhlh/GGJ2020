@@ -20,6 +20,11 @@ public class Hud : MonoBehaviour
     {
         m_hudCanvas.enabled = true;
         int index = 0;
+
+        if (!m_playerArrowPrefab)
+        {
+            return;
+        }
         foreach( var cosmonaut in cosmonauts )
         {
             var arrow = Instantiate( m_playerArrowPrefab, transform, false);
