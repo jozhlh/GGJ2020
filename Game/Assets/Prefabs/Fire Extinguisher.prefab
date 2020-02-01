@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floatingBody: {fileID: 2895685656584099434}
-  pushForce: {x: -500, y: 0}
+  pushForce: -500
   spraySize: {x: 3, y: 0.5}
   sprayFx: {fileID: 2656334786152552225}
   sprayCollider: {fileID: 2656334786152552226}
