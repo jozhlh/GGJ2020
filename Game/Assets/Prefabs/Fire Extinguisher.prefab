@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 671737240233241017}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 3.4181, y: 6.8362, z: 3.4181}
   m_Children: []
   m_Father: {fileID: 6067816159702609700}
   m_RootOrder: 0
@@ -69,7 +69,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 0.14148238, b: 0, a: 1}
   m_FlipX: 0
@@ -153,11 +153,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.75784373, y: 0.1965031}
-      - {x: 0.06701058, y: 0.09444681}
-      - {x: 0.0696215, y: 0.031002402}
-      - {x: 0.7840942, y: -0.11052239}
-      - {x: 0.93433416, y: 0.033097267}
+    - - {x: 2.6334372, y: 0.76780456}
+      - {x: 0.19636184, y: 0.3423699}
+      - {x: 0.22053128, y: 0.21425003}
+      - {x: 2.756701, y: -0.2614321}
+      - {x: 3.1764226, y: 0.2055656}
 --- !u!50 &7986894840227388536
 Rigidbody2D:
   serializedVersion: 4
@@ -277,7 +277,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.004219711}
-  m_Size: {x: 0.14, y: 0.27702445}
+  m_Size: {x: 0.48, y: 0.97}
   m_Direction: 0
 --- !u!1 &3253673733373321934
 GameObject:
@@ -304,8 +304,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3253673733373321934}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.494, y: 0.068, z: 0}
-  m_LocalScale: {x: 0.3375, y: 0.16362502, z: 1}
+  m_LocalPosition: {x: 1.67, y: 0.309, z: 0}
+  m_LocalScale: {x: 1.1536088, y: 0.5592867, z: 3.4181}
   m_Children: []
   m_Father: {fileID: 2656334786152552227}
   m_RootOrder: 0
@@ -348,7 +348,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 746c0b40b0dce8b4f8458c7a0079a92f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
