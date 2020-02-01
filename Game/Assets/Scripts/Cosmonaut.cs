@@ -287,7 +287,8 @@ public class Cosmonaut : MonoBehaviour
     {
         var renderers = GetComponentsInChildren<Renderer>();
 
-        floatingObject.enabled = false;
+        //floatingObject.enabled = false;
+        floatingObject.Rigidbody.isKinematic = true;
 
         const float deathDuration = 1.0f;
         var startTime = Time.time;
@@ -308,7 +309,8 @@ public class Cosmonaut : MonoBehaviour
         transform.rotation = Quaternion.identity;
         transform.position = Vector3.zero;
 
-        floatingObject.enabled = true;
+        //floatingObject.enabled = true;
+        floatingObject.Rigidbody.isKinematic = false;
         foreach (var renderer in renderers)
         {
             renderer.material.color = Color.white;

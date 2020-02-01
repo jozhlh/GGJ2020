@@ -9,8 +9,9 @@ public class FloatingBody : MonoBehaviour
     [SerializeField]
     private RigidbodyConstraints constraints;
 
-    private new Rigidbody rigidbody;
-    public Rigidbody Rigidbody => rigidbody;
+    [SerializeField]
+    private Rigidbody m_rigidbody;
+    public Rigidbody Rigidbody => m_rigidbody;
 
     private readonly List<GravitySource> gravitySources = new List<GravitySource>();
 
@@ -20,21 +21,23 @@ public class FloatingBody : MonoBehaviour
 
     private void OnEnable()
     {
-        rigidbody = gameObject.AddComponent<Rigidbody>();
-        rigidbody.mass = mass;
-        rigidbody.constraints = constraints
-            | RigidbodyConstraints.FreezePositionZ
-            | RigidbodyConstraints.FreezeRotationY;
-        rigidbody.useGravity = false;
+        //rigidbody = gameObject.AddComponent<Rigidbody>();
+        //m_rigidbody.isKinematic = false;
+        // rigidbody.mass = mass;
+        // rigidbody.constraints = constraints
+        //     | RigidbodyConstraints.FreezePositionZ
+        //     | RigidbodyConstraints.FreezeRotationY;
+        // rigidbody.useGravity = false;
     }
 
     private void OnDisable()
     {
-        if (rigidbody)
-        {
-            Destroy(rigidbody);
-            rigidbody = null;
-        }
+        // if (m_rigidbody)
+        // {
+        //    // m_rigidbody.isKinematic =true;
+        //     // Destroy(rigidbody);
+        //     // rigidbody = null;
+        // }
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -65,7 +68,7 @@ public class FloatingBody : MonoBehaviour
 
             var gravity = new Vector2(gravityDir.x, gravityDir.y) * gravityStrength * Time.fixedDeltaTime;
 
-            this.rigidbody.AddForce(gravity);
+            this.m_rigidbody.AddForce(gravity);
         }
     }
 }
