@@ -41,6 +41,8 @@ public class Cosmonaut : MonoBehaviour
     [SerializeField]
     private CharacterVisuals m_visuals;
 
+    [SerializeField] private ParticleLevelManager m_particles;
+
     public Transform HandPosition => m_visuals.Hand;
 
     private Coroutine currentGrab;
@@ -195,17 +197,30 @@ public class Cosmonaut : MonoBehaviour
             if (boostProgress > 1)
             {
                 this.boostStarted = null;
+
+                m_particles.ParticleLevel = -1;
             }
             else
             {
                 var boost = moveDir * this.boostCurve.Evaluate(boostProgress) * Time.fixedDeltaTime;
                 this.floatingObject.Rigidbody.AddForce(boost);
+
+                if(m_particles)
+                {
+                    m_particles.ParticleLevel = 0;
+                }
             }
         }
         else
         {
             var thrust = moveDir * this.thrustSpeed * Time.fixedDeltaTime;
             this.floatingObject.Rigidbody.AddForce(thrust);
+
+            if(m_particles)
+            {
+                m_particles.ParticleLevel = -1;
+            }
+            
         }
 
         m_visuals.SetLookDirection( aim );

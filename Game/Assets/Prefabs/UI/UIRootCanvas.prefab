@@ -408,7 +408,7 @@ MonoBehaviour:
   m_camera: {fileID: 0}
   m_hudCanvas: {fileID: 9038581780842485197}
   m_parentCanvas: {fileID: 1298654361158993695}
-  m_playerArrowPrefab: {fileID: -3446197419353261796, guid: aa368c980029ea44c8c2255357940865,
+  m_playerArrowPrefab: {fileID: -3446197419353261796, guid: a457659d34801b74cbd008528648ae48,
     type: 3}
 --- !u!1001 &1295413739915593307
 PrefabInstance:
