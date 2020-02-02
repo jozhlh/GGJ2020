@@ -12,7 +12,7 @@ public class CharacterVisuals : MonoBehaviour
 
     [SerializeField] private Transform m_parent = null;
 
-    [SerializeField] private Rigidbody2D m_rb = null;
+    [SerializeField] private Rigidbody m_rb = null;
 
     [SerializeField] private PlayerController m_input = null;
 
@@ -41,7 +41,6 @@ public class CharacterVisuals : MonoBehaviour
             var y = Mathf.LerpAngle( rot.y, 265.0f, m_lerpSpeed );
             transform.eulerAngles = new Vector3( 0.0f, y, 0.0f);
         }
-        
 
         if (m_input.Aim.x > 0.5f)
         {

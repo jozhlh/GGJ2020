@@ -11,11 +11,11 @@ public class GravitySource : MonoBehaviour
         set => strength = value;
     }
 
-    private Collider2D trigger;
+    private Collider trigger;
 
     protected virtual void Awake()
     {
-        this.trigger = GetComponent<Collider2D>();
+        this.trigger = GetComponent<Collider>();
     }
 
     private void OnEnable()
@@ -32,7 +32,7 @@ public class GravitySource : MonoBehaviour
     {
         switch (this.trigger)
         {
-            case CircleCollider2D circleTrigger:
+            case SphereCollider circleTrigger:
                 {
                     var distSqr = ((Vector2)circleTrigger.transform.position - pos).sqrMagnitude;
                     var radiusSqr = circleTrigger.radius * circleTrigger.radius;
@@ -40,7 +40,7 @@ public class GravitySource : MonoBehaviour
 
                     return (this.strength * power, transform.position);
                 }
-            case BoxCollider2D boxTrigger:
+            case BoxCollider boxTrigger:
                 {
                     var cachedTransform = transform;
                     float halfScaleX = cachedTransform.lossyScale.x / 2f;
