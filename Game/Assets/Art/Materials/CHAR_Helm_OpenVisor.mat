@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CHAR_Head_C
+  m_Name: CHAR_Helm_OpenVisor
   m_Shader: {fileID: -6465566751694194690, guid: 6590cc0447ffac340afad21261158e69,
     type: 3}
   m_ShaderKeywords: 
@@ -40,7 +40,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_2C25BCAB:
-        m_Texture: {fileID: 2800000, guid: 3378bf7a48be72a4fb666cf54c300a60, type: 3}
+        m_Texture: {fileID: 2800000, guid: e32e62ba402ca1d4fb2b30b82d2be793, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_40BD0406:
