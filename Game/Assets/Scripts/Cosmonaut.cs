@@ -194,6 +194,10 @@ public class Cosmonaut : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!GameEvents.InGame)
+        {
+            return;
+        }
         float x;
         float y;
         bool jump;

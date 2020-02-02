@@ -1,8 +1,9 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class DamageCounter : MonoBehaviour
 {
     public int Health { get; private set; } = MaxHealth;
+
     public const int MaxHealth = 1000;
 
     private MultiplayerManager multiplayer;
@@ -32,6 +33,7 @@ public class DamageCounter : MonoBehaviour
         if (Health == 0)
         {
             GameEvents.OnRoundEnd();
+            SceneManager.LoadScene( SceneManager.GetActiveScene().name );
         }
     }
 }
