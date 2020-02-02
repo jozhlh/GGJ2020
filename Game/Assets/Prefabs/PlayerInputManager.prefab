@@ -103,6 +103,9 @@ MonoBehaviour:
   - {fileID: 5824387768639210883, guid: 39ca136824847f44692f9249000e7b63, type: 3}
   - {fileID: 3948472875864036813, guid: 8326e0405b0055240ae08e9f70d0d4bd, type: 3}
   - {fileID: 618813994969207415, guid: 1e7bf08b425f4614fa96c708ba4a565e, type: 3}
+  - {fileID: 618813994969207415, guid: fad8c422607320a4982eea82d7d64f43, type: 3}
+  - {fileID: 618813994969207415, guid: ba81ba15a9e39654eafe754d54cfba1c, type: 3}
+  - {fileID: 618813994969207415, guid: 31fb46f890f8a5043a1e52b0f355a3f7, type: 3}
   m_camera: {fileID: 0}
   m_lobbyUi: {fileID: 0}
   m_hudUi: {fileID: 0}
