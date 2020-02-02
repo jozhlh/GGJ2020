@@ -400,6 +400,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1187561063293662294, guid: 0b3b982ab1fd4ab4b92d65d43610ab50,
+        type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1187561063293662294, guid: 0b3b982ab1fd4ab4b92d65d43610ab50,
+        type: 3}
+      propertyPath: m_JoinBehavior
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1187561063293662294, guid: 0b3b982ab1fd4ab4b92d65d43610ab50,
+        type: 3}
+      propertyPath: m_JoinAction.m_Action.m_Name
+      value: Action
+      objectReference: {fileID: 0}
+    - target: {fileID: 1187561063293662294, guid: 0b3b982ab1fd4ab4b92d65d43610ab50,
+        type: 3}
+      propertyPath: m_JoinAction.m_Action.m_Id
+      value: 1cf90c3d-59cb-4db1-a219-acaf74f0da92
+      objectReference: {fileID: 0}
+    - target: {fileID: 1187561063293662294, guid: 0b3b982ab1fd4ab4b92d65d43610ab50,
+        type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 61f3ff66-472e-4ca8-8bd0-ed66db21f0f8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1187561063293662294, guid: 0b3b982ab1fd4ab4b92d65d43610ab50,
+        type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Gamepad>/buttonSouth
+      objectReference: {fileID: 0}
+    - target: {fileID: 1187561063293662294, guid: 0b3b982ab1fd4ab4b92d65d43610ab50,
+        type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Action
+      objectReference: {fileID: 0}
     - target: {fileID: 1187561063293662295, guid: 0b3b982ab1fd4ab4b92d65d43610ab50,
         type: 3}
       propertyPath: m_Name
@@ -560,6 +595,11 @@ PrefabInstance:
       propertyPath: m_camera
       value: 
       objectReference: {fileID: 3887593977637047385}
+    - target: {fileID: 9038581780842485197, guid: 6d80f2300aa380e4180d5a607cb62327,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d80f2300aa380e4180d5a607cb62327, type: 3}
 --- !u!224 &7857658136358243202 stripped
