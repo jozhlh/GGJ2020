@@ -66,7 +66,7 @@ public class CharacterVisuals : MonoBehaviour
     public void UpdateAnimator( )
     {
         var velocity = m_rb.velocity;
-        m_animator.SetFloat("HorizontalVelocity", velocity.x);
+        m_animator.SetFloat("HorizontalVelocity", Mathf.Abs(velocity.x));
         m_animator.SetFloat("VerticalVelocity", velocity.y);
 
         velocity.y = 0.0f;
