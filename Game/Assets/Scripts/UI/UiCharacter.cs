@@ -47,9 +47,9 @@ public class UiCharacter : MonoBehaviour
         if (m_rend)
         {
             var mat = m_rend.material;
-            var colr = mat.GetColor("Fresnel_Colour");
+            var colr = mat.GetColor("_FresnelColour");
             Debug.Log($"OG: {colr.b}");
-            mat.SetColor("Fresnel_Colour", color);
+            mat.SetColor("_FresnelColour", color);
             m_rend.material =mat;
         }
 
@@ -68,10 +68,10 @@ public class UiCharacter : MonoBehaviour
         if (m_rend)
         {
             var mat = m_rend.material;
-            var colr = mat.GetColor("Fresnel_Colour");
+            var colr = mat.GetColor("_FresnelColour");
             Debug.Log($"OG: {colr}");
-            mat.SetColor("Fresnel_Colour", color);
-            m_rend.material =mat;
+            mat.SetColor("_FresnelColour", color);
+            m_rend.material = mat;
         }
     }
 

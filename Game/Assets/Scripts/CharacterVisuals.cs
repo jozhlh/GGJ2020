@@ -107,7 +107,7 @@ public class CharacterVisuals : MonoBehaviour
         if (m_rend)
         {
             var mat = m_rend.material;
-            mat.SetColor("Fresnel_Colour", color);
+            mat.SetColor("_FresnelColour", color);
             m_rend.material =mat;
         }
     }
