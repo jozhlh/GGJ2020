@@ -30,9 +30,9 @@ public class LobbyUi : MonoBehaviour
         m_playerSelectPanels[index].PlayerJoined( color );
     }
 
-    public void ChangeHead( int index, GameObject head )
+    public void ChangeHead( int index, GameObject head, Color color )
     {
-        m_playerSelectPanels[index].ChangeHead( head );
+        m_playerSelectPanels[index].ChangeHead( head, color );
     }
 
     public void UpdateProgressBar( float t )
