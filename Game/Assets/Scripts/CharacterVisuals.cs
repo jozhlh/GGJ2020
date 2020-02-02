@@ -83,8 +83,8 @@ public class CharacterVisuals : MonoBehaviour
         // Does the ray intersect any objects excluding the player layer
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, m_rayDistance, LayerMask.GetMask("Env_Collision")))
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
-            Debug.Log("Did Hit");
+            //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
+            //Debug.Log("Did Hit");
             m_animator.SetBool("isGrounded", true);
         }
         else
@@ -96,7 +96,10 @@ public class CharacterVisuals : MonoBehaviour
 
     public void Setup( GameObject headPrefab, Color color )
     {
-        Instantiate( headPrefab, Vector3.zero, Quaternion.identity, m_headPoint);
+        var head = Instantiate( headPrefab, m_headPoint, false);
+        head.name = "Helmet_Temp";
+        head.transform.localPosition = Vector3.zero;
+        head.transform.localRotation = Quaternion.identity;
         m_color = color;
     }
 }

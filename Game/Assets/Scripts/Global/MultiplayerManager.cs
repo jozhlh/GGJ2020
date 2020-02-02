@@ -126,18 +126,23 @@ public class MultiplayerManager : MonoBehaviour
 
     private void CheckHeadChange()
     {
-        // if ( player.PlayerController. )
-            // {
-            //     countup = true;
-                    //m_lobbyUi.ChangeHead(index, m_colors[index]);
-            // }
         for (int i = 0; i < m_activePlayers.Count; i++)
         {
-            // if player input ui left
-            m_lobbyUi.ChangeHead( i, GetDifferentHead( i, -1 ));
+            var player = m_activePlayers[i].PlayerController;
 
-            // if player input ui right
-            m_lobbyUi.ChangeHead( i, GetDifferentHead( i, 1 ));
+            if (player.Left)
+            {
+                // if player input ui left
+                m_lobbyUi.ChangeHead( i, GetDifferentHead( i, -1 ));
+            }
+            
+            if (player.Right)
+            {
+                // if player input ui right
+                m_lobbyUi.ChangeHead( i, GetDifferentHead( i, 1 ));
+            }
+
+            player.ClearUiInput();
         }
     }
 
@@ -155,7 +160,7 @@ public class MultiplayerManager : MonoBehaviour
 
         if (headIndex >= m_heads.Length)
         {
-            headIndex = m_heads.Length - 1;
+            headIndex = 0;
         }
 
         m_headIndices[index] = headIndex;

@@ -440,6 +440,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UiCharacter (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 458787930949152970, guid: 989a41e84160cd14ba5c4339d34b1f63,
+        type: 3}
+      propertyPath: m_Depth
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 989a41e84160cd14ba5c4339d34b1f63, type: 3}
 --- !u!4 &2235766998113709362 stripped
@@ -614,6 +619,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UiCharacter (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 458787930949152970, guid: 989a41e84160cd14ba5c4339d34b1f63,
+        type: 3}
+      propertyPath: m_Depth
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 989a41e84160cd14ba5c4339d34b1f63, type: 3}
 --- !u!4 &5192597737997217089 stripped
@@ -700,6 +710,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UiCharacter (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 458787930949152970, guid: 989a41e84160cd14ba5c4339d34b1f63,
+        type: 3}
+      propertyPath: m_Depth
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 989a41e84160cd14ba5c4339d34b1f63, type: 3}

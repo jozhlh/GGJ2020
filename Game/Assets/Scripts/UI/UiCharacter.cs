@@ -48,7 +48,10 @@ public class UiCharacter : MonoBehaviour
     public void ChangeHead( GameObject head )
     {
         Destroy(m_currentHead);
-        m_currentHead = Instantiate( head, Vector3.zero, Quaternion.identity, m_headAttachPoint );
+        m_currentHead = Instantiate( head, m_headAttachPoint, false );
+        m_currentHead.name = "Helmet_Temp";
+        m_currentHead.transform.localPosition = Vector3.zero;
+        m_currentHead.transform.localRotation = Quaternion.identity;
     }
 
     private IEnumerator JoinRoutine()
