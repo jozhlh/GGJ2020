@@ -30,7 +30,7 @@ public class DamageCounter : MonoBehaviour
     private void OnDamage(int damage)
     {
         // don't let damage happen before game begins
-        if (multiplayer && multiplayer.ActivePlayerCount == 0)
+        if (!GameEvents.InGame)
         {
             return;
         }
