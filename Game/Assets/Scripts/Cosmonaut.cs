@@ -288,6 +288,8 @@ public class Cosmonaut : MonoBehaviour
         //floatingObject.enabled = false;
         floatingObject.Rigidbody.isKinematic = true;
 
+        heldTool.UnGrab( this );
+
         const float deathDuration = 1.0f;
         var startTime = Time.time;
 
