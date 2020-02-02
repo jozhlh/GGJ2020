@@ -23,6 +23,9 @@ public class UiCharacter : MonoBehaviour
     [SerializeField]
     private GameObject m_currentHead = null;
 
+    [SerializeField]
+    private SkinnedMeshRenderer m_rend = null;
+
     private void Start()
     {
         GameEvents.OnRoundStart += IDontNeedYouNoMore;
@@ -39,19 +42,37 @@ public class UiCharacter : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    public void Join()
+    public void Join( Color color )
     {
+        if (m_rend)
+        {
+            var mat = m_rend.material;
+            var colr = mat.GetColor("Fresnel_Colour");
+            Debug.Log($"OG: {colr.b}");
+            mat.SetColor("Fresnel_Colour", color);
+            m_rend.material =mat;
+        }
+
         StartCoroutine(JoinRoutine());
     }
 
     // Update is called once per frame
-    public void ChangeHead( GameObject head )
+    public void ChangeHead( GameObject head, Color color )
     {
         Destroy(m_currentHead);
         m_currentHead = Instantiate( head, m_headAttachPoint, false );
         m_currentHead.name = "Helmet_Temp";
         m_currentHead.transform.localPosition = Vector3.zero;
         m_currentHead.transform.localRotation = Quaternion.identity;
+
+        if (m_rend)
+        {
+            var mat = m_rend.material;
+            var colr = mat.GetColor("Fresnel_Colour");
+            Debug.Log($"OG: {colr}");
+            mat.SetColor("Fresnel_Colour", color);
+            m_rend.material =mat;
+        }
     }
 
     private IEnumerator JoinRoutine()

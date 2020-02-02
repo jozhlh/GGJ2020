@@ -133,13 +133,13 @@ public class MultiplayerManager : MonoBehaviour
             if (player.Left)
             {
                 // if player input ui left
-                m_lobbyUi.ChangeHead( i, GetDifferentHead( i, -1 ));
+                m_lobbyUi.ChangeHead( i, GetDifferentHead( i, -1 ), m_colors[i]);
             }
             
             if (player.Right)
             {
                 // if player input ui right
-                m_lobbyUi.ChangeHead( i, GetDifferentHead( i, 1 ));
+                m_lobbyUi.ChangeHead( i, GetDifferentHead( i, 1 ), m_colors[i]);
             }
 
             player.ClearUiInput();
