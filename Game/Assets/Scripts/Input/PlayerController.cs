@@ -26,7 +26,9 @@ public class PlayerController : MonoBehaviour
 
     private bool m_cachedStart = false;
 
-    private bool m_updated = false;
+    private bool m_left = false;
+
+    private bool m_right = false;
 
     public Vector2 Move => m_move;
     public Vector2 Aim => m_aim;
@@ -38,6 +40,17 @@ public class PlayerController : MonoBehaviour
     public bool Interact => m_interact;
 
     public bool Start => m_start;
+
+    public bool Left => m_left;
+
+    public bool Right => m_right;
+    
+
+    public void ClearUiInput()
+    {
+        m_left = false;
+        m_right = false;
+    }
 
 
     // Call from Fixedupdates to ensure inputs are not dropped between fixed frame updates
@@ -114,5 +127,16 @@ public class PlayerController : MonoBehaviour
     {
         m_start = false;
         Debug.Log("On Start Up");
+    }
+
+    private void OnLeft()
+    {
+        m_left = true;
+    }
+
+
+    private void OnRight()
+    {
+        m_right = true;
     }
 }

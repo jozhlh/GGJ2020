@@ -9023,8 +9023,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af159cfd0753948948e8fc4cf209372b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_gizmoSize: 2.71
   m_spawnRateOverTime:
     serializedVersion: 2
@@ -12532,8 +12532,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Version: 9
   m_ObsoleteShadowResolutionTier: 1
   m_ObsoleteUseShadowQualitySettings: 0
@@ -18584,7 +18584,7 @@ PrefabInstance:
     - target: {fileID: 3380441114083350419, guid: 50a945e661efa494da58f33814364f82,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3380441114083350419, guid: 50a945e661efa494da58f33814364f82,
         type: 3}
@@ -22041,56 +22041,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 320907223}
     m_Modifications:
-    - target: {fileID: 173040102922819927, guid: 9d9e8786bbb8eed459fb5ddacd90b68f,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1235570278407975935, guid: 9d9e8786bbb8eed459fb5ddacd90b68f,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.40291214
-      objectReference: {fileID: 0}
-    - target: {fileID: 1235570278407975935, guid: 9d9e8786bbb8eed459fb5ddacd90b68f,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1235570278945519877, guid: 9d9e8786bbb8eed459fb5ddacd90b68f,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1235570278945519877, guid: 9d9e8786bbb8eed459fb5ddacd90b68f,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.764781
-      objectReference: {fileID: 0}
-    - target: {fileID: 1235570278945519877, guid: 9d9e8786bbb8eed459fb5ddacd90b68f,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1235570279500145653, guid: 9d9e8786bbb8eed459fb5ddacd90b68f,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1235570279500145653, guid: 9d9e8786bbb8eed459fb5ddacd90b68f,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1235570279500145653, guid: 9d9e8786bbb8eed459fb5ddacd90b68f,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.63343525
-      objectReference: {fileID: 0}
-    - target: {fileID: 1358438039798799701, guid: 9d9e8786bbb8eed459fb5ddacd90b68f,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.5986471
-      objectReference: {fileID: 0}
     - target: {fileID: 2230185493443011653, guid: 9d9e8786bbb8eed459fb5ddacd90b68f,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -23148,11 +23098,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 441482e8936e35048a1dffac814e3ef8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Profile: {fileID: 11400000, guid: 7e444cd669cf40f4cb0b392c5f28c5ed, type: 2}
   m_StaticLightingSkyUniqueID: 3
-  m_SkySettings: {fileID: 1861204142}
+  m_SkySettings: {fileID: 1007207035 }
   m_SkySettingsFromProfile: {fileID: 5717311753671784060, guid: 7e444cd669cf40f4cb0b392c5f28c5ed,
     type: 2}
 --- !u!4 &958421758
@@ -23167,7 +23117,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &958552630
 PrefabInstance:
@@ -24180,6 +24130,76 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1006186301}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1007207035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81bcacc415a1f743bfdf703afc52027, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  active: 1
+  m_AdvancedMode: 0
+  rotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  skyIntensityMode:
+    m_OverrideState: 0
+    m_Value: 0
+  exposure:
+    m_OverrideState: 0
+    m_Value: 0
+  multiplier:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxValue:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxColor:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0, z: 0}
+  desiredLuxValue:
+    m_OverrideState: 0
+    m_Value: 20000
+  updateMode:
+    m_OverrideState: 0
+    m_Value: 0
+  updatePeriod:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+  includeSunInBaking:
+    m_OverrideState: 0
+    m_Value: 0
+  top:
+    m_OverrideState: 0
+    m_Value: {r: 0, g: 0, b: 1, a: 1}
+    hdr: 1
+    showAlpha: 0
+    showEyeDropper: 1
+  middle:
+    m_OverrideState: 0
+    m_Value: {r: 0.3, g: 0.7, b: 1, a: 1}
+    hdr: 1
+    showAlpha: 0
+    showEyeDropper: 1
+  bottom:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    hdr: 1
+    showAlpha: 0
+    showEyeDropper: 1
+  gradientDiffusion:
+    m_OverrideState: 0
+    m_Value: 1
 --- !u!4 &1007233047 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 256560060279060118, guid: a9152dd048753e540af3c6fc6e969122,
@@ -47193,8 +47213,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a81bcacc415a1f743bfdf703afc52027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   active: 1
   m_AdvancedMode: 0
   rotation:

@@ -611,36 +611,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3872049631299474438, guid: 8952856f91b4bfb4391177ee07013186,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3872049631299474438, guid: 8952856f91b4bfb4391177ee07013186,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3872049631299474438, guid: 8952856f91b4bfb4391177ee07013186,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3872049631299474438, guid: 8952856f91b4bfb4391177ee07013186,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3872049631299474438, guid: 8952856f91b4bfb4391177ee07013186,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6447113258092759917, guid: 8952856f91b4bfb4391177ee07013186,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8952856f91b4bfb4391177ee07013186, type: 3}
 --- !u!224 &4603142000480247364 stripped
@@ -828,6 +798,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5570263987129059629, guid: 8952856f91b4bfb4391177ee07013186,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: b4790c60add724e45aa932b4023c04b5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8952856f91b4bfb4391177ee07013186, type: 3}
 --- !u!224 &4331937200120357092 stripped
@@ -1015,6 +990,16 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3872049631299474438, guid: 8952856f91b4bfb4391177ee07013186,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5570263987129059629, guid: 8952856f91b4bfb4391177ee07013186,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: d83040f2dff4bc642aa23e4f46ec75a8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8952856f91b4bfb4391177ee07013186, type: 3}
 --- !u!224 &4331937200704354836 stripped
@@ -1202,6 +1187,16 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3872049631299474438, guid: 8952856f91b4bfb4391177ee07013186,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5570263987129059629, guid: 8952856f91b4bfb4391177ee07013186,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: 3c746a250568a6048a36db5187599ea2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8952856f91b4bfb4391177ee07013186, type: 3}
 --- !u!224 &4331937201241862382 stripped

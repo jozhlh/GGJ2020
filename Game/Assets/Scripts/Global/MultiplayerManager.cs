@@ -10,7 +10,9 @@ public class MultiplayerManager : MonoBehaviour
 
     [SerializeField]
     private Color[] m_colors = new Color[4];
-
+    
+    [SerializeField]
+    private GameObject[] m_heads = new GameObject[4];
 
     [Header("References")]
     [SerializeField]
@@ -24,6 +26,8 @@ public class MultiplayerManager : MonoBehaviour
 
     [SerializeField]
     private Transform[] m_spawnPositions = new Transform[4];
+
+    private int[] m_headIndices = { 0, 0, 0, 0};
 
     private readonly List<Cosmonaut> m_activePlayers = new List<Cosmonaut>();
 
@@ -73,6 +77,8 @@ public class MultiplayerManager : MonoBehaviour
             }
         }
 
+        CheckHeadChange();
+
         // if ( countup )
         // {
         //     GameEvents.InGame = true;
@@ -98,6 +104,7 @@ public class MultiplayerManager : MonoBehaviour
 
         if (m_startCount > m_holdToStartDuration)
         {
+            SetCharacterHeads();
             GameEvents.InGame = true;
             GameEvents.OnRoundStart();
             Debug.Log("Round Start");
@@ -105,6 +112,60 @@ public class MultiplayerManager : MonoBehaviour
             m_camera.GivePlayers(m_activePlayers);
             m_hudUi.CreatePlayerArrows(m_activePlayers, m_colors);
         }
+    }
+
+    private void SetCharacterHeads()
+    {
+        for (int i = 0; i < m_activePlayers.Count; i++)
+        {
+            var player = m_activePlayers[i];
+            player.SetupVisuals( m_heads[m_headIndices[i]], m_colors[i] );
+        }
+    }
+
+
+    private void CheckHeadChange()
+    {
+        for (int i = 0; i < m_activePlayers.Count; i++)
+        {
+            var player = m_activePlayers[i].PlayerController;
+
+            if (player.Left)
+            {
+                // if player input ui left
+                m_lobbyUi.ChangeHead( i, GetDifferentHead( i, -1 ));
+            }
+            
+            if (player.Right)
+            {
+                // if player input ui right
+                m_lobbyUi.ChangeHead( i, GetDifferentHead( i, 1 ));
+            }
+
+            player.ClearUiInput();
+        }
+    }
+
+
+    private GameObject GetDifferentHead( int index, int direction )
+    {
+        var headIndex = m_headIndices[index];
+
+        headIndex += direction;
+
+        if (headIndex < 0)
+        {
+            headIndex = m_heads.Length - 1;
+        }
+
+        if (headIndex >= m_heads.Length)
+        {
+            headIndex = 0;
+        }
+
+        m_headIndices[index] = headIndex;
+
+        return m_heads[headIndex];
     }
 
 
@@ -119,8 +180,9 @@ public class MultiplayerManager : MonoBehaviour
 
         SpawnPlayer( player.transform, index );
 
-        m_lobbyUi.PlayerJoined(index);
+        m_lobbyUi.PlayerJoined(index, m_colors[index]);
     }
+
 
     private void SpawnPlayer( Transform player, int index )
     {
@@ -129,10 +191,12 @@ public class MultiplayerManager : MonoBehaviour
         player.transform.parent = transform;
     }
 
+
     private void OnPlayerDied(Cosmonaut player)
     {
         SpawnPlayer(player.transform, player.PlayerIndex);
     }
+
 
     private void OnDrawGizmosSelected()
     {
