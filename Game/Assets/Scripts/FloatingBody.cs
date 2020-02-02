@@ -4,27 +4,43 @@ using UnityEngine;
 public class FloatingBody : MonoBehaviour
 {
     [SerializeField]
-    private new Rigidbody2D rigidbody;
-    public Rigidbody2D Rigidbody => rigidbody;
+    private float mass = 1.0f;
+
+    [SerializeField]
+    private RigidbodyConstraints constraints;
+
+    [SerializeField]
+    private Rigidbody m_rigidbody;
+    public Rigidbody Rigidbody => m_rigidbody;
 
     private readonly List<GravitySource> gravitySources = new List<GravitySource>();
 
     private void Awake()
     {
-        rigidbody.gravityScale = 0;
     }
 
     private void OnEnable()
     {
-        rigidbody.simulated = true;
+        //rigidbody = gameObject.AddComponent<Rigidbody>();
+        //m_rigidbody.isKinematic = false;
+        // rigidbody.mass = mass;
+        // rigidbody.constraints = constraints
+        //     | RigidbodyConstraints.FreezePositionZ
+        //     | RigidbodyConstraints.FreezeRotationY;
+        // rigidbody.useGravity = false;
     }
 
     private void OnDisable()
     {
-        rigidbody.simulated = false;
+        // if (m_rigidbody)
+        // {
+        //    // m_rigidbody.isKinematic =true;
+        //     // Destroy(rigidbody);
+        //     // rigidbody = null;
+        // }
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerEnter(Collider collider)
     {
         if (collider.TryGetComponent<GravitySource>(out var gravitySource))
         {
@@ -35,7 +51,7 @@ public class FloatingBody : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collider)
+    private void OnTriggerExit(Collider collider)
     {
         if (collider.TryGetComponent<GravitySource>(out var gravitySource))
         {
@@ -49,10 +65,10 @@ public class FloatingBody : MonoBehaviour
         {
             var (gravityStrength, gravityTarget) = gravitySource.GetStrengthAndTargetAt(this.transform.position);
             var gravityDir = gravityTarget - this.transform.position;
-            
+
             var gravity = new Vector2(gravityDir.x, gravityDir.y) * gravityStrength * Time.fixedDeltaTime;
 
-            this.rigidbody.AddForce(gravity);
+            this.m_rigidbody.AddForce(gravity);
         }
     }
 }
