@@ -109,9 +109,13 @@ public class CharacterVisuals : MonoBehaviour
 
         if (m_rend)
         {
-            var mat = m_rend.material;
-            mat.SetColor("_FresnelColour", color);
-            m_rend.material =mat;
+            var mats = m_rend.materials;
+            mats[0].SetColor("_FresnelColour", color);
+            mats[1].SetColor("_BaseColor", color);
+            mats[1].SetColor("_EmissionColor", color);
+            mats[1].SetColor("_EmissiveColor", color);
+            mats[1].SetFloat("_EmissiveIntensity", 3.0f);
+            m_rend.materials = mats;
         }
 
         var headRend = head.GetComponentInChildren<MeshRenderer>();
