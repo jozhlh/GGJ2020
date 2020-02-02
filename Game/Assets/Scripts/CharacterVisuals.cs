@@ -24,6 +24,12 @@ public class CharacterVisuals : MonoBehaviour
 
     [SerializeField] private SkinnedMeshRenderer m_rend = null;
 
+    [SerializeField] private Color m_deathColor = Color.red;
+
+    [SerializeField] private float m_deathFresnelPower = -1f;
+
+    private MeshRenderer m_headRend;
+
     public Transform Hand => m_toolAttachPoint;
 
     private Vector2 m_lookAtTarget = Vector2.right;
@@ -111,10 +117,48 @@ public class CharacterVisuals : MonoBehaviour
             m_rend.material =mat;
         }
 
-        var headRend = head.GetComponentInChildren<MeshRenderer>();
-        var headMat = headRend.material;
+        m_headRend = head.GetComponentInChildren<MeshRenderer>();
+        var headMat = m_headRend.material;
         headMat.SetColor("_FresnelColour", color);
-        headRend.material = headMat;
+        m_headRend.material = headMat;
 
+    }
+
+    public IEnumerator DeathAnimation()
+    {
+        var renderers = new Renderer[] { m_rend, m_headRend };
+
+        var fresnelColorProp = Shader.PropertyToID("_FresnelColour");
+        var fresnelPowerProp = Shader.PropertyToID("_FresnelPower");
+
+        var startFresnelColor = renderers[0].material.GetColor(fresnelColorProp);
+        var startFresnelPower = renderers[0].material.GetFloat(fresnelPowerProp);
+
+        const float deathDuration = 1.0f;
+        var startTime = Time.time;
+
+        float deathProgress;
+        do
+        {
+            deathProgress = (Time.time - startTime) / deathDuration;
+            foreach (var renderer in renderers)
+            {
+                var color = Color.LerpUnclamped(startFresnelColor, m_deathColor, deathProgress);
+                var fresnelPower = Mathf.LerpUnclamped(startFresnelPower, m_deathFresnelPower, deathProgress);
+                renderer.material.SetColor(fresnelColorProp, color);
+                renderer.material.SetFloat(fresnelPowerProp, fresnelPower);
+            }
+            yield return null;
+        }
+        while (deathProgress < 1);
+
+        transform.rotation = Quaternion.identity;
+        transform.position = Vector3.zero;
+
+        foreach (var renderer in renderers)
+        {
+            renderer.material.SetColor(fresnelColorProp, startFresnelColor);
+            renderer.material.SetFloat(fresnelPowerProp, startFresnelPower);
+        }
     }
 }
