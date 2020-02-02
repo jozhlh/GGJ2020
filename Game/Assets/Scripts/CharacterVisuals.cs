@@ -24,6 +24,9 @@ public class CharacterVisuals : MonoBehaviour
 
     [SerializeField] private SkinnedMeshRenderer m_rend = null;
 
+    [SerializeField]
+    private Light[] m_lights = new Light[2];
+
     public Transform Hand => m_toolAttachPoint;
 
     private Vector2 m_lookAtTarget = Vector2.right;
@@ -106,15 +109,24 @@ public class CharacterVisuals : MonoBehaviour
 
         if (m_rend)
         {
-            var mat = m_rend.material;
-            mat.SetColor("_FresnelColour", color);
-            m_rend.material =mat;
+            var mats = m_rend.materials;
+            mats[0].SetColor("_FresnelColour", color);
+            mats[1].SetColor("_BaseColor", color);
+            mats[1].SetColor("_EmissionColor", color);
+            mats[1].SetColor("_EmissiveColor", color);
+            mats[1].SetFloat("_EmissiveIntensity", 3.0f);
+            m_rend.materials = mats;
         }
 
         var headRend = head.GetComponentInChildren<MeshRenderer>();
         var headMat = headRend.material;
         headMat.SetColor("_FresnelColour", color);
         headRend.material = headMat;
+
+        foreach( var light in m_lights)
+        {
+            light.color = color;
+        }
 
     }
 }

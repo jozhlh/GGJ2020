@@ -23,6 +23,13 @@ public class SFXController : MonoBehaviour
             m_source.Stop();
             return;
         }
+
+        if (index >= m_sfx.Length)
+        {
+            Debug.LogError($"{gameObject}'s sfx controller does not have sfx with index {index}");
+            return;
+        }
+
         m_source.clip = m_sfx[index];
         m_source.Play();
     }

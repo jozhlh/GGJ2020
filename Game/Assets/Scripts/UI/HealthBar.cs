@@ -9,6 +9,8 @@ public class HealthBar : MonoBehaviour
     [SerializeField]
     private Image healthBarFill;
 
+    [SerializeField] private AudioSource m_audioSource;
+
     private DamageCounter damageCounter;
 
     private void Awake()
@@ -26,10 +28,21 @@ public class HealthBar : MonoBehaviour
     private void OnDestroy()
     {
         GameEvents.OnDamage -= OnDamage;
+        m_audioSource.Stop();
     }
 
     private void OnDamage(int damage)
     {
+        float prevFill = healthBarFill.fillAmount;
         healthBarFill.fillAmount = Mathf.InverseLerp(0f, DamageCounter.MaxHealth, damageCounter.Health);
+
+        if (healthBarFill.fillAmount < 0.1f && prevFill > 0.1f)
+        {
+            m_audioSource.Play();
+        }
+        else if (healthBarFill.fillAmount > 0.1f && prevFill < 0.1f)
+        {
+            m_audioSource.Stop();
+        }
     }
 }
