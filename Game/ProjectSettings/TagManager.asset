@@ -17,8 +17,10 @@ TagManager:
   - Hazards
   - Tools
   - Player
+  - UiPlayer
   - 
-  - 
+  - Physics_Objects
+  - Door
   - 
   - 
   - 

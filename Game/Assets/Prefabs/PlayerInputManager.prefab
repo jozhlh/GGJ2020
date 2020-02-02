@@ -98,6 +98,11 @@ MonoBehaviour:
   - {r: 1, g: 0, b: 0.63343525, a: 1}
   - {r: 1, g: 0.764781, b: 0, a: 1}
   - {r: 0, g: 0.40291214, b: 1, a: 1}
+  m_heads:
+  - {fileID: 2431365852677371872, guid: 31f52e932b6cc724297107adb6e6c99e, type: 3}
+  - {fileID: 5824387768639210883, guid: 39ca136824847f44692f9249000e7b63, type: 3}
+  - {fileID: 3948472875864036813, guid: 8326e0405b0055240ae08e9f70d0d4bd, type: 3}
+  - {fileID: 618813994969207415, guid: 1e7bf08b425f4614fa96c708ba4a565e, type: 3}
   m_camera: {fileID: 0}
   m_lobbyUi: {fileID: 0}
   m_hudUi: {fileID: 0}

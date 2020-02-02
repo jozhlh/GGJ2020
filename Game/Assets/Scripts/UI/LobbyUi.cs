@@ -25,9 +25,14 @@ public class LobbyUi : MonoBehaviour
         GameEvents.OnRoundStart -= StartRound;
     }
 
-    public void PlayerJoined( int index )
+    public void PlayerJoined( int index, Color color )
     {
-        m_playerSelectPanels[index].PlayerJoined();
+        m_playerSelectPanels[index].PlayerJoined( color );
+    }
+
+    public void ChangeHead( int index, GameObject head, Color color )
+    {
+        m_playerSelectPanels[index].ChangeHead( head, color );
     }
 
     public void UpdateProgressBar( float t )

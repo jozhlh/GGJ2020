@@ -10,6 +10,8 @@ public class CharacterVisuals : MonoBehaviour
 
     [SerializeField] private float m_rayDistance = 0.3f;
 
+    [SerializeField] private Transform m_headPoint = null;
+
     [SerializeField] private Transform m_toolAttachPoint = null;
 
     [SerializeField] private Transform m_parent = null;
@@ -20,11 +22,15 @@ public class CharacterVisuals : MonoBehaviour
 
     [SerializeField] private Animator m_animator = null;
 
+    [SerializeField] private SkinnedMeshRenderer m_rend = null;
+
     public Transform Hand => m_toolAttachPoint;
 
     private Vector2 m_lookAtTarget = Vector2.right;
 
     private float m_yTarget = 0.0f;
+
+    private Color m_color;
 
 
     // Update is called once per frame
@@ -79,13 +85,30 @@ public class CharacterVisuals : MonoBehaviour
         // Does the ray intersect any objects excluding the player layer
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, m_rayDistance, LayerMask.GetMask("Env_Collision")))
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
-            Debug.Log("Did Hit");
+            //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
+            //Debug.Log("Did Hit");
             m_animator.SetBool("isGrounded", true);
         }
         else
         {
             m_animator.SetBool("isGrounded", false);
+        }
+    }
+
+
+    public void Setup( GameObject headPrefab, Color color )
+    {
+        var head = Instantiate( headPrefab, m_headPoint, false);
+        head.name = "Helmet_Temp";
+        head.transform.localPosition = Vector3.zero;
+        head.transform.localRotation = Quaternion.identity;
+        m_color = color;
+
+        if (m_rend)
+        {
+            var mat = m_rend.material;
+            mat.SetColor("Fresnel_Colour", color);
+            m_rend.material =mat;
         }
     }
 }

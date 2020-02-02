@@ -3,8 +3,11 @@ using UnityEngine.SceneManagement;
 public class DamageCounter : MonoBehaviour
 {
     public int Health { get; private set; } = MaxHealth;
+    public float TimeLeft { get; private set; } = MaxTime;
 
-    public const int MaxHealth = 1000;
+    public const float MaxTime = 240;
+
+    public const int MaxHealth = 10000;
 
     private MultiplayerManager multiplayer;
 
@@ -16,6 +19,17 @@ public class DamageCounter : MonoBehaviour
         multiplayer = FindObjectOfType<MultiplayerManager>();
     }
 
+    private void Update()
+    {
+        TimeLeft -= Time.deltaTime;
+
+        if (TimeLeft <= 0)
+        {
+            GameEvents.OnRoundEnd();
+            SceneManager.LoadScene( SceneManager.GetActiveScene().name );
+        }
+    }
+
     private void OnDestroy()
     {
         GameEvents.OnRoundStart -= OnRoundStart;
@@ -25,12 +39,13 @@ public class DamageCounter : MonoBehaviour
     private void OnRoundStart()
     {
         Health = MaxHealth;
+        TimeLeft = MaxTime;
     }
 
     private void OnDamage(int damage)
     {
         // don't let damage happen before game begins
-        if (multiplayer && multiplayer.ActivePlayerCount == 0)
+        if (!GameEvents.InGame)
         {
             return;
         }
