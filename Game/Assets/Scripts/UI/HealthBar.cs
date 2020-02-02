@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     [SerializeField]
-    private Image healthBarFill;
+    private Image[] healthBarFill = new Image[2];
 
     [SerializeField] private AudioSource m_audioSource;
 
@@ -33,14 +33,16 @@ public class HealthBar : MonoBehaviour
 
     private void OnDamage(int damage)
     {
-        float prevFill = healthBarFill.fillAmount;
-        healthBarFill.fillAmount = Mathf.InverseLerp(0f, DamageCounter.MaxHealth, damageCounter.Health);
+        var bar = healthBarFill[0];
+        float prevFill = bar.fillAmount;
+        healthBarFill[0].fillAmount = Mathf.InverseLerp(0f, DamageCounter.MaxHealth, damageCounter.Health);
+        healthBarFill[1].fillAmount = healthBarFill[0].fillAmount;
 
-        if (healthBarFill.fillAmount < 0.1f && prevFill > 0.1f)
+        if (bar.fillAmount < 0.1f && prevFill > 0.1f)
         {
             m_audioSource.Play();
         }
-        else if (healthBarFill.fillAmount > 0.1f && prevFill < 0.1f)
+        else if (bar.fillAmount > 0.1f && prevFill < 0.1f)
         {
             m_audioSource.Stop();
         }

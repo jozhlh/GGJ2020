@@ -313,6 +313,7 @@ public class Cosmonaut : MonoBehaviour
         if (currentGrab != null)
         {
             StopCoroutine(currentGrab);
+            currentGrab = null;
         }
 
         //floatingObject.enabled = false;
