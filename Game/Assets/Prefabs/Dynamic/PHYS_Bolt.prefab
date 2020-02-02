@@ -80,6 +80,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bolt_Dynamic
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: a5c85b2439020e44ab9e614875222dff,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5c85b2439020e44ab9e614875222dff, type: 3}
 --- !u!1 &5084460430845114467 stripped

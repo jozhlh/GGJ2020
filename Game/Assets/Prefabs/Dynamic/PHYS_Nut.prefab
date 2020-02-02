@@ -105,17 +105,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 40755ad1acb207048946801595ee5d95,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.28098476
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 40755ad1acb207048946801595ee5d95,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6640911
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 40755ad1acb207048946801595ee5d95,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.3364425
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 40755ad1acb207048946801595ee5d95,
         type: 3}
@@ -161,6 +161,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Nut_Dynamic
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 40755ad1acb207048946801595ee5d95,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40755ad1acb207048946801595ee5d95, type: 3}

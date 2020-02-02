@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1895461288551080638}
   - component: {fileID: 6563484864797213010}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RigidBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3477197169010962257}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Phys_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
