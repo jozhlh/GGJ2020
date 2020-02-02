@@ -80,7 +80,7 @@ public class CharacterVisuals : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, m_rayDistance, LayerMask.GetMask("Env_Collision")))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
-            Debug.Log("Did Hit");
+            // Debug.Log("Did Hit");
             m_animator.SetBool("isGrounded", true);
         }
         else
