@@ -5,9 +5,9 @@ public class DamageCounter : MonoBehaviour
     public int Health { get; private set; } = MaxHealth;
     public float TimeLeft { get; private set; } = MaxTime;
 
-    public const float MaxTime = 240;
+    public const float MaxTime = 60*2 + 40;
 
-    public const int MaxHealth = 10000;
+    public const int MaxHealth = 5000;
 
     private MultiplayerManager multiplayer;
 

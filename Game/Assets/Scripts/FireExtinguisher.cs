@@ -16,6 +16,9 @@ public class FireExtinguisher : Tool
     [SerializeField]
     private Transform sprayCenter;
 
+    [SerializeField] 
+    private AudioSource m_sfx;
+
     private Collider[] sprayHits = new Collider[4];
     private LayerMask hazardMask;
 
@@ -37,6 +40,7 @@ public class FireExtinguisher : Tool
         currentUser = user;
 
         m_sprayParticles.Play();
+        m_sfx.Play();
         //spray.gameObject.SetActive(true);
     }
 
@@ -45,6 +49,7 @@ public class FireExtinguisher : Tool
         currentUser = null;
 
         m_sprayParticles.Stop();
+        m_sfx.Stop();
         //spray.gameObject.SetActive(false);
     }
 
