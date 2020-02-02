@@ -151,7 +151,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359284819325376436}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 2992a8f61abe532469dba9370e74f24c, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.4
@@ -344,6 +344,10 @@ MonoBehaviour:
   m_input: {fileID: 6019956271313247964}
   m_animator: {fileID: 6662384902591563865}
   m_rend: {fileID: 7020263767838708879}
+  m_lights:
+  - {fileID: 2642996122724111753}
+  - {fileID: 5291290539154892143}
+  - {fileID: 2782500979983609393}
 --- !u!1 &2894120972388230666
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,12 +871,7 @@ PrefabInstance:
     - target: {fileID: 2321555342545927595, guid: ed49be129f8434212b8178e81f33534c,
         type: 3}
       propertyPath: m_Intensity
-      value: 19.894367
-      objectReference: {fileID: 0}
-    - target: {fileID: 2321555342545927595, guid: ed49be129f8434212b8178e81f33534c,
-        type: 3}
-      propertyPath: m_BounceIntensity
-      value: 3
+      value: 0.07957747
       objectReference: {fileID: 0}
     - target: {fileID: 2321555342545927595, guid: ed49be129f8434212b8178e81f33534c,
         type: 3}
@@ -881,13 +880,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2321555342545927595, guid: ed49be129f8434212b8178e81f33534c,
         type: 3}
+      propertyPath: m_BounceIntensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321555342545927595, guid: ed49be129f8434212b8178e81f33534c,
+        type: 3}
       propertyPath: m_Range
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3161788776436119789, guid: ed49be129f8434212b8178e81f33534c,
         type: 3}
       propertyPath: m_Intensity
-      value: 250
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed49be129f8434212b8178e81f33534c, type: 3}
@@ -903,6 +907,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9fea85e9969145239a05ec19f25281f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!108 &2782500979983609393 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 2321555342545927595, guid: ed49be129f8434212b8178e81f33534c,
+    type: 3}
+  m_PrefabInstance: {fileID: 480407066692113306}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6076854791915703006
 PrefabInstance:
   m_ObjectHideFlags: 0

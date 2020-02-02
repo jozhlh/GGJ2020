@@ -77,6 +77,11 @@ public class Cosmonaut : MonoBehaviour
 
     private void Update()
     {
+        if (currentDeath != null)
+        {
+            return;
+        }
+
         bool useTool;
 
         if (useKeyboard)
@@ -102,7 +107,7 @@ public class Cosmonaut : MonoBehaviour
             }
             else if (!heldTool.IsUsing && useTool)
             {
-                heldTool.BeginUsing(this);                
+                heldTool.BeginUsing(this);
             }
         }
     }
@@ -188,7 +193,7 @@ public class Cosmonaut : MonoBehaviour
                 yield return null;
             }
 
-            //m_sfxController.PlayIndex(2);
+            m_sfxController.PlayIndex(2);
             heldTool.UnGrab(this);
             heldTool = null;
 
@@ -197,7 +202,9 @@ public class Cosmonaut : MonoBehaviour
             {
                 yield return null;
             }
-        }else{
+        }
+        else
+        {
             m_sfxController.PlayIndex(-1);
         }
 
@@ -303,7 +310,10 @@ public class Cosmonaut : MonoBehaviour
 
     private IEnumerator DeathAnimation()
     {
-        var renderers = GetComponentsInChildren<SkinnedMeshRenderer>();
+        if (currentGrab != null)
+        {
+            StopCoroutine(currentGrab);
+        }
 
         //floatingObject.enabled = false;
         floatingObject.Rigidbody.isKinematic = true;
@@ -311,34 +321,19 @@ public class Cosmonaut : MonoBehaviour
         if (heldTool != null)
         {
             heldTool.UnGrab( this );
+            heldTool = null;
         }
-        
 
-        const float deathDuration = 1.0f;
-        var startTime = Time.time;
-
-        float deathProgress;
-        do
+        var deathAnimation = m_visuals.DeathAnimation();
+        while (deathAnimation.MoveNext())
         {
-            deathProgress = (Time.time - startTime) / deathDuration;
-            foreach (var renderer in renderers)
-            {
-                var color = Color.LerpUnclamped(Color.white, Color.clear, deathProgress);
-                renderer.material.color = color;
-            }
-            yield return null;
+            yield return deathAnimation.Current;
         }
-        while (deathProgress < 1);
+
+        floatingObject.Rigidbody.isKinematic = false;
 
         transform.rotation = Quaternion.identity;
         transform.position = Vector3.zero;
-
-        //floatingObject.enabled = true;
-        floatingObject.Rigidbody.isKinematic = false;
-        foreach (var renderer in renderers)
-        {
-            renderer.material.color = Color.white;
-        }
         currentDeath = null;
 
         GameEvents.OnPlayerDied(this);
