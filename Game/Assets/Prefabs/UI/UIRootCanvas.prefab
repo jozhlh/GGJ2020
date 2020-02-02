@@ -1212,11 +1212,6 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3872049631299474438, guid: 8952856f91b4bfb4391177ee07013186,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5570263987129059629, guid: 8952856f91b4bfb4391177ee07013186,
         type: 3}
       propertyPath: m_Texture
@@ -1407,11 +1402,6 @@ PrefabInstance:
     - target: {fileID: 3872049631299474438, guid: 8952856f91b4bfb4391177ee07013186,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3872049631299474438, guid: 8952856f91b4bfb4391177ee07013186,
-        type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5570263987129059629, guid: 8952856f91b4bfb4391177ee07013186,
