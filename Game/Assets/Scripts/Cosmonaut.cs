@@ -291,7 +291,7 @@ public class Cosmonaut : MonoBehaviour
 
     private IEnumerator DeathAnimation()
     {
-        var renderers = GetComponentsInChildren<Renderer>();
+        var renderers = GetComponentsInChildren<SkinnedMeshRenderer>();
 
         //floatingObject.enabled = false;
         floatingObject.Rigidbody.isKinematic = true;

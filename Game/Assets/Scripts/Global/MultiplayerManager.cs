@@ -73,7 +73,30 @@ public class MultiplayerManager : MonoBehaviour
             }
         }
 
+        // if ( countup )
+        // {
+        //     GameEvents.InGame = true;
+        //     GameEvents.OnRoundStart();
+        //     Debug.Log("Round Start");
+        //     m_inLobby = false;
+        //     m_camera.GivePlayers(m_activePlayers);
+        //     m_hudUi.CreatePlayerArrows(m_activePlayers, m_colors);
+        // }
+
         if ( countup )
+        {
+            m_startCount += Time.deltaTime;
+        }
+        else
+        {
+            m_startCount -= ( 2.0f * Time.deltaTime );
+        }
+
+        m_startCount = Mathf.Max( m_startCount, 0.0f );
+
+        m_lobbyUi.UpdateProgressBar( m_startCount / m_holdToStartDuration );
+
+        if (m_startCount > m_holdToStartDuration)
         {
             GameEvents.InGame = true;
             GameEvents.OnRoundStart();
@@ -82,25 +105,6 @@ public class MultiplayerManager : MonoBehaviour
             m_camera.GivePlayers(m_activePlayers);
             m_hudUi.CreatePlayerArrows(m_activePlayers, m_colors);
         }
-
-        // if ( countup )
-        // {
-        //     m_startCount += Time.deltaTime;
-        // }
-        // else
-        // {
-        //     m_startCount -= ( 2.0f * Time.deltaTime );
-        // }
-
-        // m_startCount = Mathf.Max( m_startCount, 0.0f );
-
-        // m_lobbyUi.UpdateProgressBar( m_startCount / m_holdToStartDuration );
-
-        // if (m_startCount > m_holdToStartDuration)
-        // {
-        //     GameEvents.OnRoundStart();
-        //     m_inLobby = false;
-        // }
     }
 
 
