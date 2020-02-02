@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 618ed145baa90834ba653b33abc7593e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_minFov: 40
+  m_minFov: 25
   m_maxFov: 100
   m_fovLerp: 0.3
   m_yOffset: 0.5
