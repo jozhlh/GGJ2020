@@ -12,7 +12,7 @@ public class CharacterVisuals : MonoBehaviour
 
     [SerializeField] private Transform m_parent = null;
 
-    [SerializeField] private Rigidbody2D m_rb = null;
+    [SerializeField] private Rigidbody m_rb = null;
 
     [SerializeField] private PlayerController m_input = null;
 
