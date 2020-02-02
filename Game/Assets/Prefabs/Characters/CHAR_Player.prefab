@@ -520,7 +520,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Radius: 0.16
+  m_Radius: 0.1
   m_RadiusDistrib:
     serializedVersion: 2
     m_Curve: []
@@ -535,7 +535,7 @@ MonoBehaviour:
   m_Exclusions:
   - {fileID: 1880108039823497112}
   - {fileID: 3215328119361589802}
-  - {fileID: 9139518900952159368}
+  - {fileID: 4249114846497105256}
   m_FreezeAxis: 0
   m_DistantDisable: 0
   m_ReferenceObject: {fileID: 0}
@@ -713,9 +713,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2580685691447690471}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &9139518900952159368 stripped
+--- !u!4 &4249114846497105256 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6703176980924502127, guid: 48f888ef77770154fbe6cbd368718bf4,
+  m_CorrespondingSourceObject: {fileID: 1812571883013415311, guid: 48f888ef77770154fbe6cbd368718bf4,
     type: 3}
   m_PrefabInstance: {fileID: 2580685691447690471}
   m_PrefabAsset: {fileID: 0}
