@@ -23,17 +23,14 @@ ModelImporter:
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
       might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Hips' has translation animation that will
-      be discarded.\n\t'UpperChest' is inbetween humanoid transforms and has rotation
-      animation that will be discarded.\n\t'L_Palm' has scale animation that will
-      be discarded.\n\t'R_Palm' has scale animation that will be discarded.\n\t'Head'
-      has scale animation that will be discarded.\n\t'Helmet' has translation animation
-      that will be discarded.\n"
+      to improve retargeting quality.\n\t'L_Palm' has scale animation that will be
+      discarded.\n\t'R_Palm' has scale animation that will be discarded.\n\t'Head'
+      has scale animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
