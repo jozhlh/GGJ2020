@@ -11,6 +11,8 @@ public class FireExtinguisher : Tool
     [SerializeField]
     private GameObject spray;
 
+    [SerializeField] private ParticleSystem m_sprayParticles;
+
     [SerializeField]
     private Transform sprayCenter;
 
@@ -24,7 +26,8 @@ public class FireExtinguisher : Tool
 
     private void Awake()
     {
-        spray.gameObject.SetActive(false);
+        //spray.gameObject.SetActive(false);
+        m_sprayParticles.Stop();
         hazardMask = LayerMask.GetMask("Hazards");
     }
 
@@ -33,14 +36,16 @@ public class FireExtinguisher : Tool
         Debug.Assert(!currentUser);
         currentUser = user;
 
-        spray.gameObject.SetActive(true);
+        m_sprayParticles.Play();
+        //spray.gameObject.SetActive(true);
     }
 
     public override void StopUsing(Cosmonaut user)
     {
         currentUser = null;
 
-        spray.gameObject.SetActive(false);
+        m_sprayParticles.Stop();
+        //spray.gameObject.SetActive(false);
     }
 
     public override bool IsUsing
