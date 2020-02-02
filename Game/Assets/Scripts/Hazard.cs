@@ -6,6 +6,7 @@ public enum HazardKind
     Fire,
     GasLeak,
     Alien,
+    HullBreach,
 }
 
 public class Hazard : MonoBehaviour
@@ -96,18 +97,13 @@ public class Hazard : MonoBehaviour
     private void Update()
     {
         // don't let fire grow before game begins
-        if (multiplayer && multiplayer.ActivePlayerCount == 0)
+        if (!GameEvents.InGame)
         {
             return;
         }
 
         if (health > 0)
         {
-            if (kind != HazardKind.GasLeak)
-            {
-                HurtPlayers();
-            }
-
             health = Mathf.Min(maxHealth, health + growSpeed * Time.deltaTime);
 
             var healthProgress = Mathf.InverseLerp(minHealth, maxHealth, Mathf.Max(minHealth, health));
@@ -130,6 +126,7 @@ public class Hazard : MonoBehaviour
                     break;
                 }
 
+                case HazardKind.HullBreach:
                 case HazardKind.GasLeak:
                 {
                     DamageStation();
@@ -184,6 +181,6 @@ public class Hazard : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(transform.position, radius);
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }
