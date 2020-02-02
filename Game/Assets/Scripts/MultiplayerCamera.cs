@@ -5,6 +5,12 @@ using UnityEngine;
 public class MultiplayerCamera : MonoBehaviour
 {
     [SerializeField]
+    private float m_minFov = 40.0f;
+
+    [SerializeField]
+    private float m_maxFov = 100.0f;
+
+    [SerializeField]
     private float m_fovLerp = 0.1f;
 
     [SerializeField]
@@ -112,6 +118,8 @@ public class MultiplayerCamera : MonoBehaviour
         }
 
         m_targetFov = fov + (fov * m_fovScale * ratio);
+        m_targetFov = Mathf.Max(m_minFov, m_targetFov);
+        m_targetFov = Mathf.Min(m_maxFov, m_targetFov);
         m_camera.fieldOfView = Mathf.Lerp( m_camera.fieldOfView, m_targetFov, m_fovLerp );
     }
 

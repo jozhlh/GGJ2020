@@ -24,7 +24,7 @@ public class PlayerSelectPanel : MonoBehaviour
     {
         m_joinUi.enabled = false;
         m_startUi.SetActive(true);
-        m_uiCharacter.Join();
+        m_uiCharacter.Join( color );
 
         foreach (var image in m_playerColorImages )
         {
@@ -32,8 +32,8 @@ public class PlayerSelectPanel : MonoBehaviour
         }
     }
 
-    public void ChangeHead( GameObject head )
+    public void ChangeHead( GameObject head, Color color )
     {
-        m_uiCharacter.ChangeHead( head );
+        m_uiCharacter.ChangeHead( head, color );
     }
 }

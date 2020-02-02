@@ -29,6 +29,8 @@ public class Cosmonaut : MonoBehaviour
     private PlayerController playerController;
     public PlayerController PlayerController => playerController;
 
+    [SerializeField]
+    private SFXController m_sfxController;
     private Tool heldTool;
 
     [SerializeField]
@@ -93,6 +95,7 @@ public class Cosmonaut : MonoBehaviour
 
         if (IsInputGrabbing() && currentGrab == null)
         {
+            m_sfxController.PlayIndex(0);
             currentGrab = StartCoroutine(Grab());
         }
 
@@ -104,7 +107,7 @@ public class Cosmonaut : MonoBehaviour
             }
             else if (!heldTool.IsUsing && useTool)
             {
-                heldTool.BeginUsing(this);
+                heldTool.BeginUsing(this);                
             }
         }
     }
@@ -154,6 +157,7 @@ public class Cosmonaut : MonoBehaviour
                 {
                     if (hits[i].GetComponentInParent<Tool>() is Tool tool)
                     {
+                        m_sfxController.PlayIndex(1);
                         grabbedTool = tool;
                         break;
                     }
@@ -189,6 +193,7 @@ public class Cosmonaut : MonoBehaviour
                 yield return null;
             }
 
+            //m_sfxController.PlayIndex(2);
             heldTool.UnGrab(this);
             heldTool = null;
 
@@ -197,6 +202,8 @@ public class Cosmonaut : MonoBehaviour
             {
                 yield return null;
             }
+        }else{
+            m_sfxController.PlayIndex(-1);
         }
 
         currentGrab = null;

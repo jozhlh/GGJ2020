@@ -75,6 +75,7 @@ MonoBehaviour:
   m_character: {fileID: 330283040707806718}
   m_headAttachPoint: {fileID: 4371326461177761414}
   m_currentHead: {fileID: 252231248915585416}
+  m_rend: {fileID: 3703188963756750271}
 --- !u!1 &458787930949152966
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,6 +790,12 @@ PrefabInstance:
 --- !u!4 &330283040707806718 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 200576887409470992, guid: 328574771e51152409cd96246493e8e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 458787930765814766}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &3703188963756750271 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3835289587343056465, guid: 328574771e51152409cd96246493e8e2,
     type: 3}
   m_PrefabInstance: {fileID: 458787930765814766}
   m_PrefabAsset: {fileID: 0}

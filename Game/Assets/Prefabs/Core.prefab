@@ -267,9 +267,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 618ed145baa90834ba653b33abc7593e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_minFov: 40
+  m_maxFov: 100
   m_fovLerp: 0.3
   m_yOffset: 0.5
-  m_fovScale: 0.4
+  m_fovScale: 0.6
   m_extentsBuffer: {x: 1, y: 0.2}
   m_minExtents: {x: 10, y: 5}
   m_camera: {fileID: 3887593977637047385}

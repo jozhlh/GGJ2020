@@ -22,6 +22,8 @@ public class CharacterVisuals : MonoBehaviour
 
     [SerializeField] private Animator m_animator = null;
 
+    [SerializeField] private SkinnedMeshRenderer m_rend = null;
+
     public Transform Hand => m_toolAttachPoint;
 
     private Vector2 m_lookAtTarget = Vector2.right;
@@ -101,5 +103,18 @@ public class CharacterVisuals : MonoBehaviour
         head.transform.localPosition = Vector3.zero;
         head.transform.localRotation = Quaternion.identity;
         m_color = color;
+
+        if (m_rend)
+        {
+            var mat = m_rend.material;
+            mat.SetColor("_FresnelColour", color);
+            m_rend.material =mat;
+        }
+
+        var headRend = head.GetComponentInChildren<MeshRenderer>();
+        var headMat = headRend.material;
+        headMat.SetColor("_FresnelColour", color);
+        headRend.material = headMat;
+
     }
 }
