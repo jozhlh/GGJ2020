@@ -6,27 +6,25 @@ using System;
 public class MusicController : MonoBehaviour
 {
     [SerializeField] private AudioSource m_music;
-
-    public static Action<bool> MissionStateChanged = (started) => {};
     void Start()
     {
-        MissionStateChanged += MissionStateChangedListener;
+        GameEvents.OnRoundStart += MissionStartedListener;
+        GameEvents.OnRoundEnd += MissionEndedListener;
     }
 
     void OnDestroy()
     {
-        MissionStateChanged -= MissionStateChangedListener;
+        GameEvents.OnRoundStart -= MissionStartedListener;
+        GameEvents.OnRoundEnd -= MissionEndedListener;
     }
 
-    private void MissionStateChangedListener(bool started)
+    private void MissionStartedListener()
     {
-        if (started)
-        {
-            m_music.Play();
-        }
-        else
-        {
-            m_music.Stop();
-        }
+        m_music.Play();
+    }
+
+    private void MissionEndedListener()
+    {
+        m_music.Stop();
     }
 }
