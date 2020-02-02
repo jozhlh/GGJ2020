@@ -98,8 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c358f644e785bb64f8c683957d11e0a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: 3
-  constraints: 0
   m_rigidbody: {fileID: 3311072587296559810}
 --- !u!136 &3336658837887097219
 CapsuleCollider:
@@ -394,8 +392,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91dda4c7505c5f74d814f50083e928f1, type: 2}
-  - {fileID: 2100000, guid: 5f7590080e96205489d9ebdd68195408, type: 2}
+  - {fileID: 2100000, guid: b565839a721d59b40a7f21ff40c58023, type: 2}
+  - {fileID: 2100000, guid: 471a28dfaec4474418ab0649ad05c0f7, type: 2}
+  - {fileID: 2100000, guid: 471a28dfaec4474418ab0649ad05c0f7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
