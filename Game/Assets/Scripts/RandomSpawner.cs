@@ -1,6 +1,4 @@
-using System.Drawing;
 using UnityEngine;
-using System;
 using Vector3 = UnityEngine.Vector3;
 using Random = UnityEngine.Random;
 using System.Collections.Generic;
