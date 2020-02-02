@@ -188,7 +188,7 @@ public class Cosmonaut : MonoBehaviour
                 yield return null;
             }
 
-            //m_sfxController.PlayIndex(2);
+            m_sfxController.PlayIndex(2);
             heldTool.UnGrab(this);
             heldTool = null;
 
@@ -197,7 +197,9 @@ public class Cosmonaut : MonoBehaviour
             {
                 yield return null;
             }
-        }else{
+        }
+        else
+        {
             m_sfxController.PlayIndex(-1);
         }
 
