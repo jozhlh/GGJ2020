@@ -8,6 +8,8 @@ public class CharacterVisuals : MonoBehaviour
 
     [SerializeField] private float m_lerpSpeed = 0.4f;
 
+    [SerializeField] private float m_rayDistance = 0.3f;
+
     [SerializeField] private Transform m_toolAttachPoint = null;
 
     [SerializeField] private Transform m_parent = null;
@@ -57,7 +59,7 @@ public class CharacterVisuals : MonoBehaviour
 
         if (m_animator)
         {
-            UpdateAnimator(  );
+            UpdateAnimator();
         }
     }
 
@@ -72,5 +74,18 @@ public class CharacterVisuals : MonoBehaviour
         move.y = 0.0f;
 
         m_animator.SetFloat("xDot", Vector3.Dot(velocity, move));
+
+        RaycastHit hit;
+        // Does the ray intersect any objects excluding the player layer
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, m_rayDistance, LayerMask.GetMask("Env_Collision")))
+        {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
+            Debug.Log("Did Hit");
+            m_animator.SetBool("isGrounded", true);
+        }
+        else
+        {
+            m_animator.SetBool("isGrounded", false);
+        }
     }
 }
