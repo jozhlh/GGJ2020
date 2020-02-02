@@ -50,8 +50,10 @@ public class UiCharacter : MonoBehaviour
             var colr = mat.GetColor("_FresnelColour");
             Debug.Log($"OG: {colr.b}");
             mat.SetColor("_FresnelColour", color);
-            m_rend.material =mat;
+            m_rend.material = mat;
         }
+
+        ColorHead(color);
 
         StartCoroutine(JoinRoutine());
     }
@@ -69,11 +71,23 @@ public class UiCharacter : MonoBehaviour
         {
             var mat = m_rend.material;
             var colr = mat.GetColor("_FresnelColour");
-            Debug.Log($"OG: {colr}");
+            //Debug.Log($"OG: {colr}");
             mat.SetColor("_FresnelColour", color);
             m_rend.material = mat;
         }
+
+        ColorHead(color);
     }
+
+
+    private void ColorHead( Color color )
+    {
+        var headRend = m_currentHead.GetComponentInChildren<MeshRenderer>();
+        var headMat = headRend.material;
+        headMat.SetColor("_FresnelColour", color);
+        headRend.material = headMat;
+    }
+
 
     private IEnumerator JoinRoutine()
     {
