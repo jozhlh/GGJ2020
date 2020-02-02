@@ -19,6 +19,8 @@ TagManager:
   - Player
   - UiPlayer
   - 
+  - Physics_Objects
+  - Door
   - 
   - 
   - 
