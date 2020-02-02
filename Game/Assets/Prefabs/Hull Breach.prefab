@@ -52,7 +52,7 @@ MonoBehaviour:
   growSpeed: 0
   mainVisual: {fileID: 6503751561465619656}
   radius: 1
-  kind: 1
+  kind: 3
 --- !u!54 &5445813245558032786
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -77,10 +77,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411804646386664508}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.3
+  m_Radius: 2.3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &6800893849572418995
 AudioSource:
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 163a01bcb96beb8468fe73a791d7d131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 200
+  strength: 180
 --- !u!1 &6503751561465619656
 GameObject:
   m_ObjectHideFlags: 0

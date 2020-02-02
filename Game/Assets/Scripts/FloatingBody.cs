@@ -4,41 +4,10 @@ using UnityEngine;
 public class FloatingBody : MonoBehaviour
 {
     [SerializeField]
-    private float mass = 1.0f;
-
-    [SerializeField]
-    private RigidbodyConstraints constraints;
-
-    [SerializeField]
     private Rigidbody m_rigidbody;
     public Rigidbody Rigidbody => m_rigidbody;
 
     private readonly List<GravitySource> gravitySources = new List<GravitySource>();
-
-    private void Awake()
-    {
-    }
-
-    private void OnEnable()
-    {
-        //rigidbody = gameObject.AddComponent<Rigidbody>();
-        //m_rigidbody.isKinematic = false;
-        // rigidbody.mass = mass;
-        // rigidbody.constraints = constraints
-        //     | RigidbodyConstraints.FreezePositionZ
-        //     | RigidbodyConstraints.FreezeRotationY;
-        // rigidbody.useGravity = false;
-    }
-
-    private void OnDisable()
-    {
-        // if (m_rigidbody)
-        // {
-        //    // m_rigidbody.isKinematic =true;
-        //     // Destroy(rigidbody);
-        //     // rigidbody = null;
-        // }
-    }
 
     private void OnTriggerEnter(Collider collider)
     {
