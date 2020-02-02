@@ -17,6 +17,21 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: ComputerSheet_A
+    second: {fileID: 2100000, guid: 5e2dd52fc6050d941b807b20765aaf74, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DecalSheet_A
+    second: {fileID: 2100000, guid: db4b6d6fb027b194abb8e3b52ddf2eb4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Emissive_Green
+    second: {fileID: 2100000, guid: 4bcdbc741520ae24d80707de98724fb6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Emissive_Red
     second: {fileID: 2100000, guid: 1d4dfb3abf2d03d498e9124a236eb134, type: 2}
   - first:
@@ -32,8 +47,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: UNLIT_Black
+    second: {fileID: 2100000, guid: e94e7dc9f49859d49a124b9181f7a2ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: UTIL_Black
+    second: {fileID: 2100000, guid: 18d2530f49a7a1e4b8ca311be9866c37, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: UTIL_Grey
     second: {fileID: 2100000, guid: 9523b95aa794a9644b5ca4e527f9ccbf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: UTIL_Red
+    second: {fileID: 2100000, guid: 49645d35027e2974aa2d6d0736fa1777, type: 2}
   materials:
     materialImportMode: 1
     materialName: 1
