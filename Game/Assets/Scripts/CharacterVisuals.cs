@@ -28,6 +28,9 @@ public class CharacterVisuals : MonoBehaviour
 
     [SerializeField] private float m_deathFresnelPower = -1f;
 
+    [SerializeField]
+    private Light[] m_lights = new Light[2];
+
     private MeshRenderer m_headRend;
 
     public Transform Hand => m_toolAttachPoint;
@@ -112,9 +115,13 @@ public class CharacterVisuals : MonoBehaviour
 
         if (m_rend)
         {
-            var mat = m_rend.material;
-            mat.SetColor("_FresnelColour", color);
-            m_rend.material =mat;
+            var mats = m_rend.materials;
+            mats[0].SetColor("_FresnelColour", color);
+            mats[1].SetColor("_BaseColor", color);
+            mats[1].SetColor("_EmissionColor", color);
+            mats[1].SetColor("_EmissiveColor", color);
+            mats[1].SetFloat("_EmissiveIntensity", 3.0f);
+            m_rend.materials = mats;
         }
 
         m_headRend = head.GetComponentInChildren<MeshRenderer>();
@@ -122,6 +129,10 @@ public class CharacterVisuals : MonoBehaviour
         headMat.SetColor("_FresnelColour", color);
         m_headRend.material = headMat;
 
+        foreach( var light in m_lights)
+        {
+            light.color = color;
+        }
     }
 
     public IEnumerator DeathAnimation()
@@ -151,9 +162,6 @@ public class CharacterVisuals : MonoBehaviour
             yield return null;
         }
         while (deathProgress < 1);
-
-        transform.rotation = Quaternion.identity;
-        transform.position = Vector3.zero;
 
         foreach (var renderer in renderers)
         {

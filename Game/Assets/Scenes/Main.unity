@@ -23091,7 +23091,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: 7e444cd669cf40f4cb0b392c5f28c5ed, type: 2}
   m_StaticLightingSkyUniqueID: 3
-  m_SkySettings: {fileID: 1168049122}
+  m_SkySettings: {fileID: 994064165}
   m_SkySettingsFromProfile: {fileID: 5717311753671784060, guid: 7e444cd669cf40f4cb0b392c5f28c5ed,
     type: 2}
 --- !u!4 &958421758
@@ -23969,6 +23969,76 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1052627474}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &994064165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81bcacc415a1f743bfdf703afc52027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  rotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  skyIntensityMode:
+    m_OverrideState: 0
+    m_Value: 0
+  exposure:
+    m_OverrideState: 0
+    m_Value: 0
+  multiplier:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxValue:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxColor:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0, z: 0}
+  desiredLuxValue:
+    m_OverrideState: 0
+    m_Value: 20000
+  updateMode:
+    m_OverrideState: 0
+    m_Value: 0
+  updatePeriod:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+  includeSunInBaking:
+    m_OverrideState: 0
+    m_Value: 0
+  top:
+    m_OverrideState: 0
+    m_Value: {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 1}
+    hdr: 1
+    showAlpha: 0
+    showEyeDropper: 1
+  middle:
+    m_OverrideState: 0
+    m_Value: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 1}
+    hdr: 1
+    showAlpha: 0
+    showEyeDropper: 1
+  bottom:
+    m_OverrideState: 0
+    m_Value: {r: 0.066037714, g: 0.066037714, b: 0.066037714, a: 1}
+    hdr: 1
+    showAlpha: 0
+    showEyeDropper: 1
+  gradientDiffusion:
+    m_OverrideState: 0
+    m_Value: 1
 --- !u!4 &997092823 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4485034707637179619, guid: 95dbfcd3a9572bc4185ebb09b99593f1,
@@ -28349,76 +28419,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1166260664}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1168049122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a81bcacc415a1f743bfdf703afc52027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  rotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  skyIntensityMode:
-    m_OverrideState: 0
-    m_Value: 0
-  exposure:
-    m_OverrideState: 0
-    m_Value: 0
-  multiplier:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxValue:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxColor:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0, z: 0}
-  desiredLuxValue:
-    m_OverrideState: 0
-    m_Value: 20000
-  updateMode:
-    m_OverrideState: 0
-    m_Value: 0
-  updatePeriod:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-  includeSunInBaking:
-    m_OverrideState: 0
-    m_Value: 0
-  top:
-    m_OverrideState: 0
-    m_Value: {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 1}
-    hdr: 1
-    showAlpha: 0
-    showEyeDropper: 1
-  middle:
-    m_OverrideState: 0
-    m_Value: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 1}
-    hdr: 1
-    showAlpha: 0
-    showEyeDropper: 1
-  bottom:
-    m_OverrideState: 0
-    m_Value: {r: 0.066037714, g: 0.066037714, b: 0.066037714, a: 1}
-    hdr: 1
-    showAlpha: 0
-    showEyeDropper: 1
-  gradientDiffusion:
-    m_OverrideState: 0
-    m_Value: 1
 --- !u!1001 &1171114776
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29101,8 +29101,8 @@ Transform:
   - {fileID: 1996264299}
   - {fileID: 974361009}
   - {fileID: 1164100947}
-  - {fileID: 1501603570}
   - {fileID: 1035733109}
+  - {fileID: 1501603570}
   - {fileID: 1548557135}
   - {fileID: 368038549}
   - {fileID: 1279190001}
@@ -29114,10 +29114,9 @@ Transform:
   - {fileID: 15707309}
   - {fileID: 577916923}
   - {fileID: 1060193433}
-  - {fileID: 1564536148}
+  - {fileID: 1149784670}
   - {fileID: 1419160618}
   - {fileID: 1731783482}
-  - {fileID: 1149784670}
   - {fileID: 1355433435}
   - {fileID: 264593613}
   - {fileID: 2035982164}
@@ -29176,11 +29175,9 @@ Transform:
   - {fileID: 2077779437}
   - {fileID: 1620211729}
   - {fileID: 615141786}
-  - {fileID: 689649378}
-  - {fileID: 1491032177}
-  - {fileID: 1950824924}
-  - {fileID: 1356738271}
   - {fileID: 2045104511}
+  - {fileID: 1491032177}
+  - {fileID: 1564536148}
   - {fileID: 881868369}
   - {fileID: 1478024340}
   - {fileID: 1268016369}
@@ -29201,13 +29198,13 @@ Transform:
   - {fileID: 295250660}
   - {fileID: 612825160}
   - {fileID: 1735319232}
+  - {fileID: 1950824924}
   - {fileID: 131034559}
   - {fileID: 269666272}
   - {fileID: 1383443667}
   - {fileID: 1604922438}
   - {fileID: 1284230700}
   - {fileID: 736109265}
-  - {fileID: 2095711658}
   - {fileID: 610874488}
   - {fileID: 544050041}
   - {fileID: 571782716}
@@ -29290,14 +29287,15 @@ Transform:
   - {fileID: 1790875314}
   - {fileID: 1408955605}
   - {fileID: 338643567}
-  - {fileID: 590739188}
-  - {fileID: 1448879955}
-  - {fileID: 38087288}
-  - {fileID: 868562782}
   - {fileID: 447764657}
+  - {fileID: 1448879955}
+  - {fileID: 1356738271}
+  - {fileID: 38087288}
   - {fileID: 460172281}
   - {fileID: 1534402521}
+  - {fileID: 689649378}
   - {fileID: 281713256}
+  - {fileID: 181817879}
   - {fileID: 55646585}
   - {fileID: 1865359483}
   - {fileID: 1321671024}
@@ -29334,14 +29332,12 @@ Transform:
   - {fileID: 1694938468}
   - {fileID: 797520056}
   - {fileID: 1805722706}
-  - {fileID: 1836733704}
-  - {fileID: 850584811}
-  - {fileID: 181817879}
-  - {fileID: 1375505957}
   - {fileID: 518572445}
+  - {fileID: 590739188}
   - {fileID: 371013860}
   - {fileID: 137080727}
   - {fileID: 1352203747}
+  - {fileID: 2095711658}
   - {fileID: 1065321710}
   - {fileID: 180690189}
   - {fileID: 2034231154}
@@ -29351,13 +29347,12 @@ Transform:
   - {fileID: 701867185}
   - {fileID: 659181536}
   - {fileID: 595447783}
-  - {fileID: 2111416080}
   - {fileID: 209853316}
+  - {fileID: 868562782}
   - {fileID: 364449792}
   - {fileID: 862343564}
   - {fileID: 535526206}
   - {fileID: 2033492995}
-  - {fileID: 780461335}
   - {fileID: 514491802}
   - {fileID: 136931799}
   - {fileID: 1091144180}
@@ -29375,7 +29370,9 @@ Transform:
   - {fileID: 157782431}
   - {fileID: 138309821}
   - {fileID: 1277797556}
+  - {fileID: 850584811}
   - {fileID: 587514671}
+  - {fileID: 780461335}
   - {fileID: 389474391}
   - {fileID: 711410616}
   - {fileID: 691804711}
@@ -29425,6 +29422,7 @@ Transform:
   - {fileID: 360269301}
   - {fileID: 1692580456}
   - {fileID: 1355989414}
+  - {fileID: 2111416080}
   - {fileID: 271514192}
   - {fileID: 935296995}
   - {fileID: 1061714235}
@@ -29465,6 +29463,7 @@ Transform:
   - {fileID: 1551373833}
   - {fileID: 1554005785}
   - {fileID: 1733722569}
+  - {fileID: 1836733704}
   - {fileID: 279924230}
   - {fileID: 904320192}
   - {fileID: 1053934601}
@@ -29484,6 +29483,7 @@ Transform:
   - {fileID: 1689675146}
   - {fileID: 2015619428}
   - {fileID: 1678096902}
+  - {fileID: 1375505957}
   - {fileID: 171198064}
   - {fileID: 2023734592}
   - {fileID: 1525604519}
@@ -29657,11 +29657,11 @@ Transform:
   - {fileID: 619399240}
   - {fileID: 1535005735}
   - {fileID: 1936754607}
-  - {fileID: 1235561025}
   - {fileID: 1049939007}
   - {fileID: 2102842518}
   - {fileID: 1412197195}
   - {fileID: 972532096}
+  - {fileID: 1235561025}
   - {fileID: 863539351}
   - {fileID: 1370199710}
   - {fileID: 874993959}
@@ -29730,14 +29730,14 @@ Transform:
   - {fileID: 1717905769}
   - {fileID: 438272986}
   - {fileID: 554465639}
+  - {fileID: 1563358802}
   - {fileID: 928106651}
+  - {fileID: 1963698448}
   - {fileID: 88320232}
   - {fileID: 873233604}
   - {fileID: 347458391}
   - {fileID: 2092809489}
   - {fileID: 1437169366}
-  - {fileID: 1963698448}
-  - {fileID: 1563358802}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

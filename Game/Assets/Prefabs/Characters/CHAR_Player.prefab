@@ -670,6 +670,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: CHAR_Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1651062367082650294, guid: 48f888ef77770154fbe6cbd368718bf4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c629fc2a05a2ed64d9a157e6728af4f7, type: 2}
+    - target: {fileID: 1651062367082650294, guid: 48f888ef77770154fbe6cbd368718bf4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1ffb02e05121a5f4d8b118853a2fe410, type: 2}
     - target: {fileID: 5235378837551847323, guid: 48f888ef77770154fbe6cbd368718bf4,
         type: 3}
       propertyPath: m_IsActive

@@ -193,7 +193,7 @@ public class Cosmonaut : MonoBehaviour
                 yield return null;
             }
 
-            //m_sfxController.PlayIndex(2);
+            m_sfxController.PlayIndex(2);
             heldTool.UnGrab(this);
             heldTool = null;
 
@@ -202,7 +202,9 @@ public class Cosmonaut : MonoBehaviour
             {
                 yield return null;
             }
-        }else{
+        }
+        else
+        {
             m_sfxController.PlayIndex(-1);
         }
 
@@ -330,6 +332,8 @@ public class Cosmonaut : MonoBehaviour
 
         floatingObject.Rigidbody.isKinematic = false;
 
+        transform.rotation = Quaternion.identity;
+        transform.position = Vector3.zero;
         currentDeath = null;
 
         GameEvents.OnPlayerDied(this);
