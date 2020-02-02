@@ -20,11 +20,15 @@ public class PlayerSelectPanel : MonoBehaviour
     [SerializeField]
     private Image[] m_playerColorImages = new Image[4];
 
+    [SerializeField] private SFXController m_sfxController;
+
     public void PlayerJoined( Color color )
     {
         m_joinUi.enabled = false;
         m_startUi.SetActive(true);
         m_uiCharacter.Join( color );
+
+        m_sfxController.PlayRandom();
 
         foreach (var image in m_playerColorImages )
         {
