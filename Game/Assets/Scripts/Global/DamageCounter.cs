@@ -16,6 +16,12 @@ public class DamageCounter : MonoBehaviour
         multiplayer = FindObjectOfType<MultiplayerManager>();
     }
 
+    private void OnDestroy()
+    {
+        GameEvents.OnRoundStart -= OnRoundStart;
+        GameEvents.OnDamage -= OnDamage;
+    }
+
     private void OnRoundStart()
     {
         Health = MaxHealth;

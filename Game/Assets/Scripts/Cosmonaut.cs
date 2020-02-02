@@ -247,6 +247,10 @@ public class Cosmonaut : MonoBehaviour
             }
             else
             {
+                if (moveDir.sqrMagnitude < 0.5f)
+                {
+                    moveDir = Vector2.up;
+                }
                 var boost = moveDir * this.boostCurve.Evaluate(boostProgress) * Time.fixedDeltaTime;
                 this.floatingObject.Rigidbody.AddForce(boost);
 

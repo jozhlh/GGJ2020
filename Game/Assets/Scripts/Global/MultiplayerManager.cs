@@ -45,6 +45,11 @@ public class MultiplayerManager : MonoBehaviour
         GameEvents.OnPlayerDied += OnPlayerDied;
     }
 
+    void OnDestroy()
+    {
+        GameEvents.OnPlayerDied -= OnPlayerDied;
+    }
+
     void Update()
     {
         if (m_inLobby)
