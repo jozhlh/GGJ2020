@@ -445,6 +445,11 @@ PrefabInstance:
       propertyPath: m_Depth
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 458787930949152970, guid: 989a41e84160cd14ba5c4339d34b1f63,
+        type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: 3c746a250568a6048a36db5187599ea2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 989a41e84160cd14ba5c4339d34b1f63, type: 3}
 --- !u!4 &2235766998113709362 stripped
@@ -624,6 +629,11 @@ PrefabInstance:
       propertyPath: m_Depth
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 458787930949152970, guid: 989a41e84160cd14ba5c4339d34b1f63,
+        type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: b4790c60add724e45aa932b4023c04b5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 989a41e84160cd14ba5c4339d34b1f63, type: 3}
 --- !u!4 &5192597737997217089 stripped
@@ -716,6 +726,11 @@ PrefabInstance:
       propertyPath: m_Depth
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 458787930949152970, guid: 989a41e84160cd14ba5c4339d34b1f63,
+        type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: d83040f2dff4bc642aa23e4f46ec75a8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 989a41e84160cd14ba5c4339d34b1f63, type: 3}
 --- !u!4 &8410689141146113059 stripped

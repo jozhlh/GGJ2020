@@ -140,8 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c358f644e785bb64f8c683957d11e0a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: 10
-  constraints: 64
   m_rigidbody: {fileID: 4959199769462490847}
 --- !u!136 &6049684047392330388
 CapsuleCollider:
@@ -220,6 +218,7 @@ MonoBehaviour:
   m_rotateSpeed: 150
   m_lerpSpeed: 0.05
   m_rayDistance: 0.3
+  m_headPoint: {fileID: 7972128131878776758}
   m_toolAttachPoint: {fileID: 6382105794480438585}
   m_parent: {fileID: 359284819325376435}
   m_rb: {fileID: 4959199769462490847}
@@ -736,6 +735,12 @@ Animator:
 --- !u!4 &3106432086225089854 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9171880509542137824, guid: 328574771e51152409cd96246493e8e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 6076854791915703006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7972128131878776758 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4249114846497105256, guid: 328574771e51152409cd96246493e8e2,
     type: 3}
   m_PrefabInstance: {fileID: 6076854791915703006}
   m_PrefabAsset: {fileID: 0}
