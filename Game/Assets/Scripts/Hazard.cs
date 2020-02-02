@@ -41,6 +41,8 @@ public class Hazard : MonoBehaviour
     private HazardKind kind;
     public HazardKind Kind => kind;
 
+
+    [SerializeField] private ParticleLevelManager m_fireParticles;
     private readonly Collider[] colliderHits = new Collider[4];
 
     private void Awake()
@@ -163,14 +165,17 @@ public class Hazard : MonoBehaviour
             int damage;
             if (damageScale < medDamageThreshold)
             {
+                if (m_fireParticles != null) m_fireParticles.ParticleLevel = 0;
                 damage = 1;
             }
             else if (damageScale < bigDamageThreshold)
             {
+                if (m_fireParticles != null) m_fireParticles.ParticleLevel = 1;
                 damage = 2;
             }
             else
             {
+                if (m_fireParticles != null) m_fireParticles.ParticleLevel = 2;
                 damage = 3;
             }
 
