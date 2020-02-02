@@ -104,6 +104,11 @@ public class Cosmonaut : MonoBehaviour
         }
     }
 
+    public void SetupVisuals( GameObject headPrefab, Color color )
+    {
+        m_visuals.Setup( headPrefab, color );
+    }
+
     private bool IsInputGrabbing()
     {
         return useKeyboard

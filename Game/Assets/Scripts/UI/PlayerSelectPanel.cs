@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerSelectPanel : MonoBehaviour
 {
@@ -11,11 +12,28 @@ public class PlayerSelectPanel : MonoBehaviour
     private TextMeshProUGUI m_joinUi = null;
 
     [SerializeField]
-    private TextMeshProUGUI m_startUi = null;
+    private GameObject m_startUi = null;
 
-    public void PlayerJoined()
+    [SerializeField]
+    private UiCharacter m_uiCharacter = null;
+
+    [SerializeField]
+    private Image[] m_playerColorImages = new Image[4];
+
+    public void PlayerJoined( Color color )
     {
         m_joinUi.enabled = false;
-        m_startUi.enabled = true;
+        m_startUi.SetActive(true);
+        m_uiCharacter.Join();
+
+        foreach (var image in m_playerColorImages )
+        {
+            image.color = color;
+        }
+    }
+
+    public void ChangeHead( GameObject head )
+    {
+        m_uiCharacter.ChangeHead( head );
     }
 }

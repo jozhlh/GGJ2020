@@ -10,6 +10,8 @@ public class CharacterVisuals : MonoBehaviour
 
     [SerializeField] private float m_rayDistance = 0.3f;
 
+    [SerializeField] private Transform m_headPoint = null;
+
     [SerializeField] private Transform m_toolAttachPoint = null;
 
     [SerializeField] private Transform m_parent = null;
@@ -25,6 +27,8 @@ public class CharacterVisuals : MonoBehaviour
     private Vector2 m_lookAtTarget = Vector2.right;
 
     private float m_yTarget = 0.0f;
+
+    private Color m_color;
 
 
     // Update is called once per frame
@@ -87,5 +91,12 @@ public class CharacterVisuals : MonoBehaviour
         {
             m_animator.SetBool("isGrounded", false);
         }
+    }
+
+
+    public void Setup( GameObject headPrefab, Color color )
+    {
+        Instantiate( headPrefab, Vector3.zero, Quaternion.identity, m_headPoint);
+        m_color = color;
     }
 }
