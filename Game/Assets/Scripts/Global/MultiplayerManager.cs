@@ -38,10 +38,16 @@ public class MultiplayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameEvents.InGame = false;
         m_inLobby = true;
         m_activePlayers.Clear();
 
         GameEvents.OnPlayerDied += OnPlayerDied;
+    }
+
+    void OnDestroy()
+    {
+        GameEvents.OnPlayerDied -= OnPlayerDied;
     }
 
     void Update()
@@ -69,6 +75,7 @@ public class MultiplayerManager : MonoBehaviour
 
         if ( countup )
         {
+            GameEvents.InGame = true;
             GameEvents.OnRoundStart();
             Debug.Log("Round Start");
             m_inLobby = false;

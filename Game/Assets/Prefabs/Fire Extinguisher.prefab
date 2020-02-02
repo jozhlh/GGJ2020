@@ -81,10 +81,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_collider: {fileID: 3336658837887097219}
   floatingBody: {fileID: 6850961237224239074}
-  pushForce: 500
+  pushForce: -1000
   spraySize: 1.03
   spray: {fileID: 8226341412309931658}
-  sprayCenter: {fileID: 3586823339177526260}
+  sprayCenter: {fileID: 5066464859253314115}
   sprayPower: 100
 --- !u!114 &6850961237224239074
 MonoBehaviour:

@@ -12,7 +12,7 @@ public class FireExtinguisher : Tool
     private GameObject spray;
 
     [SerializeField]
-    private GameObject sprayCenter;
+    private Transform sprayCenter;
 
     private Collider[] sprayHits = new Collider[4];
     private LayerMask hazardMask;
@@ -52,7 +52,7 @@ public class FireExtinguisher : Tool
     {
         if (currentUser)
         {
-            var sprayCount = Physics.OverlapSphereNonAlloc(sprayCenter.transform.position, spraySize,
+            var sprayCount = Physics.OverlapSphereNonAlloc(sprayCenter.position, spraySize,
                 sprayHits, hazardMask);
             for (var i = 0; i < sprayCount; i += 1)
             {
@@ -80,7 +80,7 @@ public class FireExtinguisher : Tool
         if (sprayCenter)
         {
             Gizmos.color = Color.white;
-            Gizmos.DrawWireSphere(sprayCenter.transform.position, spraySize);
+            Gizmos.DrawWireSphere(sprayCenter.position, spraySize);
         }
     }
 }

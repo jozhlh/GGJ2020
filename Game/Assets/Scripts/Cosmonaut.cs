@@ -194,6 +194,10 @@ public class Cosmonaut : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!GameEvents.InGame)
+        {
+            return;
+        }
         float x;
         float y;
         bool jump;
@@ -243,6 +247,10 @@ public class Cosmonaut : MonoBehaviour
             }
             else
             {
+                if (moveDir.sqrMagnitude < 0.5f)
+                {
+                    moveDir = Vector2.up;
+                }
                 var boost = moveDir * this.boostCurve.Evaluate(boostProgress) * Time.fixedDeltaTime;
                 this.floatingObject.Rigidbody.AddForce(boost);
 
@@ -288,7 +296,11 @@ public class Cosmonaut : MonoBehaviour
         //floatingObject.enabled = false;
         floatingObject.Rigidbody.isKinematic = true;
 
-        heldTool.UnGrab( this );
+        if (heldTool != null)
+        {
+            heldTool.UnGrab( this );
+        }
+        
 
         const float deathDuration = 1.0f;
         var startTime = Time.time;
