@@ -77,6 +77,11 @@ public class Cosmonaut : MonoBehaviour
 
     private void Update()
     {
+        if (currentDeath != null)
+        {
+            return;
+        }
+
         bool useTool;
 
         if (useKeyboard)
@@ -305,6 +310,11 @@ public class Cosmonaut : MonoBehaviour
 
     private IEnumerator DeathAnimation()
     {
+        if (currentGrab != null)
+        {
+            StopCoroutine(currentGrab);
+        }
+
         var renderers = GetComponentsInChildren<SkinnedMeshRenderer>();
 
         //floatingObject.enabled = false;
@@ -313,8 +323,9 @@ public class Cosmonaut : MonoBehaviour
         if (heldTool != null)
         {
             heldTool.UnGrab( this );
+            heldTool = null;
         }
-        
+
 
         const float deathDuration = 1.0f;
         var startTime = Time.time;
