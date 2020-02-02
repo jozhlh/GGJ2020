@@ -34,13 +34,13 @@ public class Hazard : MonoBehaviour
     private GameObject mainVisual;
 
     [SerializeField]
-    private new Collider2D collider;
+    private float radius = 1f;
 
     [SerializeField]
     private HazardKind kind;
     public HazardKind Kind => kind;
 
-    private readonly RaycastHit2D[] colliderHits = new RaycastHit2D[4];
+    private readonly Collider[] colliderHits = new Collider[4];
 
     private void Awake()
     {
@@ -64,7 +64,7 @@ public class Hazard : MonoBehaviour
 
     private IEnumerator Die()
     {
-        collider.enabled = false;
+        radius = 0;
 
         var dieTime = 0.5f;
         var dieStart = Time.time;
@@ -141,11 +141,15 @@ public class Hazard : MonoBehaviour
 
     private void HurtPlayers()
     {
-        var filter = new ContactFilter2D().NoFilter();
-        var hits = collider.Cast(Vector2.zero, filter, colliderHits, 0);
+        if (radius <= 0)
+        {
+            return;
+        }
+
+        var hits = Physics.OverlapSphereNonAlloc(transform.position, radius, colliderHits);
         for (var i = 0; i < hits; ++i)
         {
-            if (colliderHits[i].collider.TryGetComponent<Cosmonaut>(out var player))
+            if (colliderHits[i].TryGetComponent<Cosmonaut>(out var player))
             {
                 player.Die();
             }
@@ -175,5 +179,11 @@ public class Hazard : MonoBehaviour
 
             GameEvents.OnDamage(damage);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(transform.position, radius);
     }
 }

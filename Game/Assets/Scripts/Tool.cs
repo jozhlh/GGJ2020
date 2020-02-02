@@ -7,16 +7,25 @@ public abstract class Tool : MonoBehaviour
     public abstract bool IsUsing { get; }
 
     [SerializeField]
+    private Collider m_collider;
+
+    [SerializeField]
     private FloatingBody floatingBody;
     public FloatingBody FloatingBody => floatingBody;
 
     public void Grab(Cosmonaut holder)
     {
+        floatingBody.Rigidbody.isKinematic = true;
+        m_collider.enabled = false;
+
         transform.SetParent( holder.HandPosition, false);
         transform.position = holder.HandPosition.transform.position;
-        transform.rotation = holder.HandPosition.transform.rotation;
+        //transform.rotation = holder.HandPosition.transform.rotation;
 
-        floatingBody.enabled = false;
+        transform.right = (transform.position - holder.transform.position).normalized;
+
+        //floatingBody.enabled = false;
+        
     }
 
     public void UnGrab(Cosmonaut holder)
@@ -28,6 +37,8 @@ public abstract class Tool : MonoBehaviour
 
         transform.SetParent(holder.transform.parent, true);
 
-        floatingBody.enabled = true;
+        //floatingBody.enabled = true;
+        floatingBody.Rigidbody.isKinematic = false;
+        m_collider.enabled = true;
     }
 }

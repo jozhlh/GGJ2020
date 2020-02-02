@@ -23,6 +23,11 @@ public class HealthBar : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        GameEvents.OnDamage -= OnDamage;
+    }
+
     private void OnDamage(int damage)
     {
         healthBarFill.fillAmount = Mathf.InverseLerp(0f, DamageCounter.MaxHealth, damageCounter.Health);

@@ -6,6 +6,7 @@ using UnityEngine;
 
 public static class GameEvents
 {
+    public static bool InGame = false;
     public static Action OnRoundStart = () => {};
     public static Action OnRoundEnd = () => {};
 

@@ -8,11 +8,13 @@ public class CharacterVisuals : MonoBehaviour
 
     [SerializeField] private float m_lerpSpeed = 0.4f;
 
+    [SerializeField] private float m_rayDistance = 0.3f;
+
     [SerializeField] private Transform m_toolAttachPoint = null;
 
     [SerializeField] private Transform m_parent = null;
 
-    [SerializeField] private Rigidbody2D m_rb = null;
+    [SerializeField] private Rigidbody m_rb = null;
 
     [SerializeField] private PlayerController m_input = null;
 
@@ -41,7 +43,6 @@ public class CharacterVisuals : MonoBehaviour
             var y = Mathf.LerpAngle( rot.y, 265.0f, m_lerpSpeed );
             transform.eulerAngles = new Vector3( 0.0f, y, 0.0f);
         }
-        
 
         if (m_input.Aim.x > 0.5f)
         {
@@ -58,14 +59,14 @@ public class CharacterVisuals : MonoBehaviour
 
         if (m_animator)
         {
-            UpdateAnimator(  );
+            UpdateAnimator();
         }
     }
 
     public void UpdateAnimator( )
     {
         var velocity = m_rb.velocity;
-        m_animator.SetFloat("HorizontalVelocity", velocity.x);
+        m_animator.SetFloat("HorizontalVelocity", Mathf.Abs(velocity.x));
         m_animator.SetFloat("VerticalVelocity", velocity.y);
 
         velocity.y = 0.0f;
@@ -73,5 +74,18 @@ public class CharacterVisuals : MonoBehaviour
         move.y = 0.0f;
 
         m_animator.SetFloat("xDot", Vector3.Dot(velocity, move));
+
+        RaycastHit hit;
+        // Does the ray intersect any objects excluding the player layer
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, m_rayDistance, LayerMask.GetMask("Env_Collision")))
+        {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
+            Debug.Log("Did Hit");
+            m_animator.SetBool("isGrounded", true);
+        }
+        else
+        {
+            m_animator.SetBool("isGrounded", false);
+        }
     }
 }
