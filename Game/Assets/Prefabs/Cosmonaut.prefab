@@ -51,8 +51,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useKeyboard: 0
-  thrustSpeed: 500
-  boostCooldown: 3
+  thrustSpeed: 1500
+  boostCooldown: 1
   boostCurve:
     serializedVersion: 2
     m_Curve:
@@ -156,7 +156,7 @@ CapsuleCollider:
   m_Radius: 0.4
   m_Height: 1.6
   m_Direction: 1
-  m_Center: {x: 0, y: 0.1, z: 0}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!54 &4959199769462490847
 Rigidbody:
   m_ObjectHideFlags: 0
