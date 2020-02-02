@@ -24,6 +24,9 @@ public class CharacterVisuals : MonoBehaviour
 
     [SerializeField] private SkinnedMeshRenderer m_rend = null;
 
+    [SerializeField]
+    private Light[] m_lights = new Light[2];
+
     public Transform Hand => m_toolAttachPoint;
 
     private Vector2 m_lookAtTarget = Vector2.right;
@@ -115,6 +118,11 @@ public class CharacterVisuals : MonoBehaviour
         var headMat = headRend.material;
         headMat.SetColor("_FresnelColour", color);
         headRend.material = headMat;
+
+        foreach( var light in m_lights)
+        {
+            light.color = color;
+        }
 
     }
 }
