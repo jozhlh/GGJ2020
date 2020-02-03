@@ -13,7 +13,7 @@ public abstract class Tool : MonoBehaviour
     private FloatingBody floatingBody;
     public FloatingBody FloatingBody => floatingBody;
 
-    public void Grab(Cosmonaut holder)
+    public virtual void Grab(Cosmonaut holder)
     {
         floatingBody.Rigidbody.isKinematic = true;
         m_collider.enabled = false;

@@ -39,6 +39,12 @@ public class HullRepairTool : Tool
         m_particles.Stop();
     }
 
+    public override void Grab(Cosmonaut holder)
+    {
+        base.Grab(holder);
+        transform.right = (holder.transform.position - transform.position).normalized;
+    }
+
     private void Update()
     {
         if (!user)
