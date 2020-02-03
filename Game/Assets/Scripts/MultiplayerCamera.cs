@@ -14,16 +14,13 @@ public class MultiplayerCamera : MonoBehaviour
     private float m_fovLerp = 0.1f;
 
     [SerializeField]
+    private float m_moveLerp = 0.1f;
+
+    [SerializeField]
     private float m_yOffset = 2.0f;
 
     [SerializeField]
     private float m_fovScale = 0.3f;
-
-    [SerializeField]
-    private Vector2 m_extentsBuffer = new Vector2(1, 1);
-
-    [SerializeField]
-    private Vector2 m_minExtents = new Vector2(10, 5);
 
     [SerializeField]
     private Camera m_camera = null;
@@ -75,11 +72,8 @@ public class MultiplayerCamera : MonoBehaviour
             top.y = Mathf.Max(top.y, pos.y);
         }
 
-        m_extents.x = Mathf.Abs(top.x - bot.x) + m_extentsBuffer.x;
-        m_extents.y = Mathf.Abs(top.y - bot.y) + m_extentsBuffer.y;
-
-        m_extents.x = Mathf.Max(m_minExtents.x, m_extents.x);
-        m_extents.y = Mathf.Max(m_minExtents.y, m_extents.y);
+        m_extents.x = Mathf.Abs(top.x - bot.x);
+        m_extents.y = Mathf.Abs(top.y - bot.y);
 
         m_centreOfMass /= (float)m_players.Count;
     }
@@ -90,7 +84,7 @@ public class MultiplayerCamera : MonoBehaviour
         pos.x = m_centreOfMass.x;
         pos.y = m_centreOfMass.y + m_yOffset;
 
-        transform.position = pos;
+        transform.position = Vector3.Lerp( transform.position, pos, m_moveLerp );
     }
 
     private void CalculateFov()
@@ -112,14 +106,25 @@ public class MultiplayerCamera : MonoBehaviour
         }
         else
         {
+            y = (y / 9.0f) * 16.0f;
             fov = Mathf.Atan(y / z) * Mathf.Rad2Deg;
-            fov = (fov / 9.0f) * 16.0f;
-            ratio = (ratio / 16.0f) * 9.0f;
+            ratio = (ratio / 9.0f) * 16.0f;
         }
 
-        m_targetFov = fov + (fov * m_fovScale * ratio);
-        m_targetFov = Mathf.Max(m_minFov, m_targetFov);
-        m_targetFov = Mathf.Min(m_maxFov, m_targetFov);
+        fov *= m_fovScale; 
+
+        if (fov < m_minFov)
+        {
+            fov = m_minFov;
+        }
+
+        if (fov > m_maxFov)
+        {
+            fov = m_maxFov;
+        }
+
+        m_targetFov = fov;
+
         m_camera.fieldOfView = Mathf.Lerp( m_camera.fieldOfView, m_targetFov, m_fovLerp );
     }
 
